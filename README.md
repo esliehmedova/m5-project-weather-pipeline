@@ -41,7 +41,7 @@ Each day has a brief in the [`daily-briefs/`](daily-briefs/) folder with detaile
 | 7 | 21 Apr | [Hypothesis Testing](daily-briefs/day-07-hypothesis-testing.md) | 3+ formal tests, assumption checks, effect sizes, multiple testing |
 | 8 | 22 Apr | [Correlation & Feature Analysis](daily-briefs/day-08-correlation.md) | Correlation matrices, VIF, ANOVA, feature selection |
 | 9 | 23 Apr | [Predictive Modeling & Evaluation](daily-briefs/day-09-predictive-modeling.md) | 2+ models, train/test, confidence intervals, residual diagnostics |
-| 10 | 24 Apr | [Final Presentation](daily-briefs/day-10-final-presentation.md) | 10–12 min presentation, live demo, project submission |
+| 10 | 24 Apr | [Final Presentation](daily-briefs/day-10-final-presentation.md) | 10 min presentation, live demo, project submission |
 
 ## Getting Started
 

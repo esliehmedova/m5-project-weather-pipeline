@@ -6,7 +6,7 @@ This is the final assessment for the two-week Weather Intelligence Pipeline proj
 
 ## Presentation
 
-Prepare and deliver a **10–12 minute presentation** covering the full project journey.
+Prepare and deliver a **10-minute presentation** covering the full project journey.
 
 ### Presentation Structure
 
@@ -46,7 +46,7 @@ Prepare and deliver a **10–12 minute presentation** covering the full project 
 ### Presentation Requirements
 
 - **Format**: Slide deck (Google Slides, PowerPoint, or Jupyter Slides) + live demo
-- **Duration**: 10–12 minutes presentation + 3–5 minutes Q&A
+- **Duration**: 10 minutes maximum + 3–5 minutes Q&A
 - **Visuals**: Include at least 5 figures/charts from your analysis (not screenshots of code)
 - **Code**: Show code only briefly when explaining the pipeline architecture — the audience cares about results, not syntax
 - **Demo**: At minimum, show the pipeline running and a prediction being made
