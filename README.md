@@ -4,35 +4,35 @@
 
 ## Overview
 
-Over the next two weeks you will build a complete, end-to-end **weather intelligence pipeline**. You will ingest historical and real-time weather data from the Open-Meteo API, store it in a local DuckDB analytical database, perform rigorous statistical analysis, and build a predictive model — all while critically evaluating whether the data can be trusted.
-
+Over the next two weeks you will build a complete, end-to-end **weather intelligence pipeline**. You will ingest historical and real-time weather data from the Open-Meteo API, store it in a local DuckDB analytical database, perform rigorous statistical analysis, and build a predictive model — all while critically evaluating whether the data can be trusted. 
+ 
 **Why weather?** Weather data is publicly available, refreshed daily, has genuine quality challenges (sensor gaps, interpolation artefacts, seasonal non-stationarity), and is the backbone of decisions in energy, agriculture, logistics, and insurance. It is the perfect playground for asking *"Can we trust this data?"*
 
-## Project Requirements
+## Project Requirements 
 
 | Week | Focus | Skills Applied |
 |------|-------|----------------|
-| **Week 1** (Days 1–5) | Data Engineering | Unit 2 — data sources, databases, ETL, pipelines |
+| **Week 1** (Days 1–5) | Data Engineering | Unit 2 — data sources, databases, ETL, pipelines | 
 | **Week 2** (Days 6–8 + Presentation) | Statistical Analysis & Prediction | Unit 3 — descriptive stats, hypothesis testing, correlation, modeling |
 
 **You must:**
 
-1. Choose **3 or more cities** (at least one should be Baku or another city relevant to you).
-2. Ingest **at least 5 years** of daily historical weather data per city.
-3. Ingest **real-time forecast data** (7-day forecast) for the same cities.
-4. Store all data in a local **DuckDB** database with a well-designed schema.
-5. Conduct **exploratory data analysis** with descriptive statistics and visualisations.
-6. Formulate and execute **at least one formal hypothesis test** (more are encouraged if time permits).
-7. Build **at least one statistical prediction model** (e.g., predict next-day temperature, rain probability, or seasonal anomaly) with confidence intervals.
-8. Present findings on presentation day with a live pipeline demo.
+1. Choose **3 or more cities** (at least one should be Baku or another city relevant to you). 
+2. Ingest **at least 5 years** of daily historical weather data per city. 
+3. Ingest **real-time forecast data** (7-day forecast) for the same cities. 
+4. Store all data in a local **DuckDB** database with a well-designed schema. 
+5. Conduct **exploratory data analysis** with descriptive statistics and visualisations. 
+6. Formulate and execute **at least one formal hypothesis test** (more are encouraged if time permits). 
+7. Build **at least one statistical prediction model** (e.g., predict next-day temperature, rain probability, or seasonal anomaly) with confidence intervals. 
+8. Present findings on presentation day with a live pipeline demo. 
 
-## Timeline
+## Timeline  
 
-Each day has a brief in the [`daily-briefs/`](daily-briefs/) folder with detailed tasks, deliverables, and resources. Submit a Pull Request at the end of each day showing your incremental progress.
+Each day has a brief in the [`daily-briefs/`](daily-briefs/) folder with detailed tasks, deliverables, and resources. Submit a Pull Request at the end of each day showing your incremental progress. 
 
-| Day | Date | Brief | Focus |
-|-----|------|-------|-------|
-| 1 | 20 Apr | [Project Kick-Off & API Exploration](daily-briefs/day-01-project-kickoff.md) | Repo setup, API exploration, city/variable selection, project plan |
+| Day | Date | Brief | Focus | 
+|-----|------|-------|-------| 
+| 1 | 20 Apr | [Project Kick-Off & API Exploration](daily-briefs/day-01-project-kickoff.md) | Repo setup, API exploration, city/variable selection, project plan | 
 | 2 | 21 Apr | [Data Ingestion Pipeline](daily-briefs/day-02-data-ingestion.md) | Ingestion module, config, full historical fetch, data audit |
 | 3 | 22 Apr | [Database Design & Data Loading](daily-briefs/day-03-database-design.md) | DuckDB schema, loading functions, validation queries |
 | 4 | 23 Apr | [Data Cleaning & Feature Engineering](daily-briefs/day-04-data-cleaning.md) | Quality assessment, cleaning pipeline, feature engineering, quality report |
@@ -48,7 +48,7 @@ Each day has a brief in the [`daily-briefs/`](daily-briefs/) folder with detaile
 
 ```bash
 # Fork this repo on GitHub, then:
-git clone https://github.com/<your-username>/m5-project-weather-pipeline.git
+git clone https://github.com/<your-username>/m5-project-weather-pipeline.git 
 cd m5-project-weather-pipeline
 ```
 
@@ -99,8 +99,8 @@ m5-project-weather-pipeline/
 │   └── raw/                # Raw API data (gitignored)
 ├── reports/
 │   ├── figures/            # Saved visualisations
-│   └── data_quality_report.md
-└── logs/                   # Pipeline logs (gitignored)
+│   └── data_quality_report.md  
+└── logs/                   # Pipeline logs (gitignored) 
 ```
 
 ## Open-Meteo API Reference
@@ -134,9 +134,9 @@ Key daily variables: `temperature_2m_max`, `temperature_2m_min`, `temperature_2m
 
 ## Resources
 
-- [Open-Meteo API Documentation](https://open-meteo.com/en/docs)
-- [Open-Meteo Historical Weather API](https://open-meteo.com/en/docs/historical-weather-api)
-- [DuckDB Python Documentation](https://duckdb.org/docs/api/python/overview)
-- [scipy.stats documentation](https://docs.scipy.org/doc/scipy/reference/stats.html)
-- [statsmodels documentation](https://www.statsmodels.org/stable/index.html)
-- [Seaborn gallery](https://seaborn.pydata.org/examples/index.html)
+- [Open-Meteo API Documentation](https://open-meteo.com/en/docs) 
+- [Open-Meteo Historical Weather API](https://open-meteo.com/en/docs/historical-weather-api) 
+- [DuckDB Python Documentation](https://duckdb.org/docs/api/python/overview) 
+- [scipy.stats documentation](https://docs.scipy.org/doc/scipy/reference/stats.html) 
+- [statsmodels documentation](https://www.statsmodels.org/stable/index.html) 
+- [Seaborn gallery](https://seaborn.pydata.org/examples/index.html)  
