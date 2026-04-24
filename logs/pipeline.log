@@ -1,0 +1,174 @@
+[2026-04-23 23:42:20] 
+=======================================================
+[2026-04-23 23:42:20] MEMBER 1 — DATA INGESTION PIPELINE
+[2026-04-23 23:42:20] =======================================================
+[2026-04-23 23:42:20] =======================================================
+[2026-04-23 23:42:20] STEP 1 — Weather Ingestion
+[2026-04-23 23:42:20] =======================================================
+[2026-04-23 23:42:20]   Fetching weather for Ganja (2000–2024)...
+[2026-04-23 23:42:20]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\ganja_daily.csv
+[2026-04-23 23:42:20]   Fetching weather for Shamkir (2000–2024)...
+[2026-04-23 23:42:20]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\shamkir_daily.csv
+[2026-04-23 23:42:20]   Fetching weather for Sabirabad (2000–2024)...
+[2026-04-23 23:42:20]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\sabirabad_daily.csv
+[2026-04-23 23:42:20]   Fetching weather for Lankaran (2000–2024)...
+[2026-04-23 23:42:20]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\lankaran_daily.csv
+[2026-04-23 23:42:20]   Fetching weather for Nakhchivan (2000–2024)...
+[2026-04-23 23:42:20]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\nakhchivan_daily.csv
+[2026-04-23 23:42:20] 
+  raw_weather table created in DuckDB
+[2026-04-23 23:42:20]   Total rows:  45660
+[2026-04-23 23:42:20]   Stations:    5
+[2026-04-23 23:42:20]   Date range:  2000-01-01 → 2024-12-31
+[2026-04-23 23:42:20] =======================================================
+[2026-04-23 23:42:20] STEP 2 — Cotton Dataset Ingestion
+[2026-04-23 23:42:20] =======================================================
+[2026-04-23 23:42:54] 
+=======================================================
+[2026-04-23 23:42:54] MEMBER 1 — DATA INGESTION PIPELINE
+[2026-04-23 23:42:54] =======================================================
+[2026-04-23 23:42:54] =======================================================
+[2026-04-23 23:42:54] STEP 1 — Weather Ingestion
+[2026-04-23 23:42:54] =======================================================
+[2026-04-23 23:42:54]   Fetching weather for Ganja (2000–2024)...
+[2026-04-23 23:42:54]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\ganja_daily.csv
+[2026-04-23 23:42:54]   Fetching weather for Shamkir (2000–2024)...
+[2026-04-23 23:42:54]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\shamkir_daily.csv
+[2026-04-23 23:42:54]   Fetching weather for Sabirabad (2000–2024)...
+[2026-04-23 23:42:54]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\sabirabad_daily.csv
+[2026-04-23 23:42:54]   Fetching weather for Lankaran (2000–2024)...
+[2026-04-23 23:42:55]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\lankaran_daily.csv
+[2026-04-23 23:42:55]   Fetching weather for Nakhchivan (2000–2024)...
+[2026-04-23 23:42:55]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\nakhchivan_daily.csv
+[2026-04-23 23:42:55] 
+  raw_weather table created in DuckDB
+[2026-04-23 23:42:55]   Total rows:  45660
+[2026-04-23 23:42:55]   Stations:    5
+[2026-04-23 23:42:55]   Date range:  2000-01-01 → 2024-12-31
+[2026-04-23 23:42:55] =======================================================
+[2026-04-23 23:42:55] STEP 2 — Cotton Dataset Ingestion
+[2026-04-23 23:42:55] =======================================================
+[2026-04-23 23:43:15] 
+=======================================================
+[2026-04-23 23:43:15] MEMBER 1 — DATA INGESTION PIPELINE
+[2026-04-23 23:43:15] =======================================================
+[2026-04-23 23:43:15] =======================================================
+[2026-04-23 23:43:15] STEP 1 — Weather Ingestion
+[2026-04-23 23:43:15] =======================================================
+[2026-04-23 23:43:15]   Fetching weather for Ganja (2000–2024)...
+[2026-04-23 23:43:15]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\ganja_daily.csv
+[2026-04-23 23:43:15]   Fetching weather for Shamkir (2000–2024)...
+[2026-04-23 23:43:15]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\shamkir_daily.csv
+[2026-04-23 23:43:15]   Fetching weather for Sabirabad (2000–2024)...
+[2026-04-23 23:43:15]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\sabirabad_daily.csv
+[2026-04-23 23:43:15]   Fetching weather for Lankaran (2000–2024)...
+[2026-04-23 23:43:15]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\lankaran_daily.csv
+[2026-04-23 23:43:15]   Fetching weather for Nakhchivan (2000–2024)...
+[2026-04-23 23:43:15]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\nakhchivan_daily.csv
+[2026-04-23 23:43:15] 
+  raw_weather table created in DuckDB
+[2026-04-23 23:43:15]   Total rows:  45660
+[2026-04-23 23:43:15]   Stations:    5
+[2026-04-23 23:43:15]   Date range:  2000-01-01 → 2024-12-31
+[2026-04-23 23:43:15] =======================================================
+[2026-04-23 23:43:15] STEP 2 — Cotton Dataset Ingestion
+[2026-04-23 23:43:15] =======================================================
+[2026-04-23 23:43:15]   Raw shape after reshape: (725, 3)
+[2026-04-23 23:43:15]   Nulls in yield:          0
+[2026-04-23 23:43:15]   Districts:               29
+[2026-04-23 23:43:15]   Years:                   2000 – 2024
+[2026-04-23 23:43:15] 
+  raw_cotton table created in DuckDB
+[2026-04-23 23:43:15] 
+=======================================================
+[2026-04-23 23:43:15] INGESTION COMPLETE — DuckDB Tables Created:
+[2026-04-23 23:43:15] =======================================================
+[2026-04-23 23:43:15]   raw_cotton              725 rows    3 cols
+[2026-04-23 23:43:15]   raw_weather           45660 rows   13 cols
+[2026-04-23 23:43:15] 
+DuckDB saved → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\cotton_project.duckdb
+[2026-04-23 23:43:15] 
+=======================================================
+[2026-04-23 23:43:15] MEMBER 1 — DATA CLEANING PIPELINE
+[2026-04-23 23:43:15] =======================================================
+[2026-04-23 23:43:15] =======================================================
+[2026-04-23 23:43:15] STEP 3 — Cleaning Cotton Dataset
+[2026-04-23 23:43:15] =======================================================
+[2026-04-23 23:43:15]   Rows loaded from raw_cotton: 725
+[2026-04-23 23:43:15]   Null yields: 0
+[2026-04-23 23:43:15]   No null districts found.
+[2026-04-23 23:43:15] 
+  Unmapped districts dropped:
+[2026-04-23 23:43:15]     ✗ Aghdam district 
+[2026-04-23 23:43:15]     ✗ Aghjabadi district 
+[2026-04-23 23:43:15]     ✗ Barda district 
+[2026-04-23 23:43:15]     ✗ Fuzuli district 
+[2026-04-23 23:43:15]     ✗ Khojaly district 
+[2026-04-23 23:43:15]     ✗ Khojavand district 
+[2026-04-23 23:43:15]     ✗ Tartar district 
+[2026-04-23 23:43:15] 
+  Rows after cleaning:  550
+[2026-04-23 23:43:15]   Districts remaining:  22
+[2026-04-23 23:43:15]   Nulls remaining:      0
+[2026-04-23 23:43:15]   clean_cotton table saved to DuckDB ✓
+[2026-04-23 23:43:15] =======================================================
+[2026-04-23 23:43:15] STEP 4 — Cleaning Weather Dataset
+[2026-04-23 23:43:15] =======================================================
+[2026-04-23 23:43:15]   Rows loaded from raw_weather: 45655
+[2026-04-23 23:43:15]   Sensor errors fixed.
+[2026-04-23 23:43:15]   Nulls after interpolation:
+[2026-04-23 23:43:15]   clean_weather table saved to DuckDB ✓
+[2026-04-23 23:43:15] =======================================================
+[2026-04-23 23:43:15] STEP 5 — Alignment Verification
+[2026-04-23 23:43:15] =======================================================
+[2026-04-23 23:43:15]   Cotton years:     2000 – 2024
+[2026-04-23 23:43:15]   Cotton districts: 22
+[2026-04-23 23:43:15]   Weather years:    2000 – 2024
+[2026-04-23 23:43:15]   Weather stations: 5
+[2026-04-23 23:43:15]   All districts have matching weather stations ✓
+[2026-04-23 23:43:15] 
+=======================================================
+[2026-04-23 23:43:15] CLEANING COMPLETE — DuckDB Tables:
+[2026-04-23 23:43:15] =======================================================
+[2026-04-23 23:43:15]   clean_cotton                 550 rows    4 cols
+[2026-04-23 23:43:15]   clean_weather              45655 rows   13 cols
+[2026-04-23 23:43:15]   raw_cotton                   725 rows    3 cols
+[2026-04-23 23:43:15]   raw_weather                45660 rows   13 cols
+[2026-04-23 23:59:42] =======================================================
+[2026-04-23 23:59:42] STEP 2 — Cotton Dataset Ingestion
+[2026-04-23 23:59:42] =======================================================
+[2026-04-23 23:59:42]   Raw shape after reshape: (725, 3)
+[2026-04-23 23:59:42]   Nulls in yield:          0
+[2026-04-23 23:59:42]   Districts:               29
+[2026-04-23 23:59:42]   Years:                   2000 – 2024
+[2026-04-23 23:59:42] 
+  raw_cotton table created in DuckDB
+[2026-04-24 00:01:12] =======================================================
+[2026-04-24 00:01:12] STEP 2 — Cotton Dataset Ingestion
+[2026-04-24 00:01:12] =======================================================
+[2026-04-24 00:01:12]   Raw shape after reshape: (725, 3)
+[2026-04-24 00:01:12]   Nulls in yield:          0
+[2026-04-24 00:01:12]   Districts:               29
+[2026-04-24 00:01:12]   Years:                   2000 – 2024
+[2026-04-24 00:01:12] 
+  raw_cotton table created in DuckDB
+[2026-04-24 00:01:13] =======================================================
+[2026-04-24 00:01:13] STEP 1 — Weather Ingestion
+[2026-04-24 00:01:13] =======================================================
+[2026-04-24 00:01:13]   Fetching weather for Ganja (2000–2024)...
+[2026-04-24 00:01:16]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\ganja_daily.csv
+[2026-04-24 00:01:16]   Fetching weather for Shamkir (2000–2024)...
+[2026-04-24 00:01:16]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\shamkir_daily.csv
+[2026-04-24 00:01:16]   Fetching weather for Sabirabad (2000–2024)...
+[2026-04-24 00:04:15] =======================================================
+[2026-04-24 00:04:15] STEP 1 — Weather Ingestion
+[2026-04-24 00:04:15] =======================================================
+[2026-04-24 00:04:15]   Fetching weather for Ganja (2000–2024)...
+[2026-04-24 00:04:15]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\ganja_daily.csv
+[2026-04-24 00:04:15]   Fetching weather for Shamkir (2000–2024)...
+[2026-04-24 00:04:15]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\shamkir_daily.csv
+[2026-04-24 00:04:15]   Fetching weather for Sabirabad (2000–2024)...
+[2026-04-24 00:04:19]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\sabirabad_daily.csv
+[2026-04-24 00:04:19]   Fetching weather for Lankaran (2000–2024)...
+[2026-04-24 00:04:21]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\lankaran_daily.csv
+[2026-04-24 00:04:21]   Fetching weather for Nakhchivan (2000–2024)...
