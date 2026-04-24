@@ -145,10 +145,11 @@ def build_risk_labels(con):
 
     # Read features using SQL
     df = con.execute("SELECT * FROM features").df()
-    ###########
+    
+    ###
     df["yield_tonnes"] = pd.to_numeric(df["yield_tonnes"], errors="coerce")
     df = df.dropna(subset=["yield_tonnes"])
-#######
+
     def normalize(series, danger_max, cap):
         return (series.clip(0, cap) / cap * 100).clip(0, 100)
 
@@ -243,6 +244,18 @@ def run_features():
         cols  = len(con.execute(f"SELECT * FROM {t[0]} LIMIT 1").description)
         log(f"  {t[0]:<25} {count:>6} rows  {cols:>3} cols")
 
+
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+    output_path = os.path.join(BASE_DIR, "data", "features_with_risk.csv")
+
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+
+    df = con.execute("SELECT * FROM features_with_risk").df()
+    df.to_csv(output_path, index=False)
+
+    log(f"CSV saved at {output_path} ✓")
+    
     con.close()
     log("\n  Next: Member 3 runs src/quality_checks.py then models")
 
