@@ -13,7 +13,7 @@ Over the next two weeks you will build a complete, end-to-end **weather intellig
 | Week | Focus | Skills Applied |
 |------|-------|----------------|
 | **Week 1** (Days 1–5) | Data Engineering | Unit 2 — data sources, databases, ETL, pipelines |
-| **Week 2** (Days 6–8 + Presentation) | Statistical Analysis & Prediction | Unit 3 — descriptive stats, hypothesis testing, correlation, modeling |
+| **Week 2** (Days 6–8 + Presentation) | Statistical Analysis & Prediction | Units 3 & 4.1 — descriptive stats, hypothesis testing, correlation, regression & classification modeling |
 
 **You must:**
 
