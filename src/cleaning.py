@@ -1,4 +1,4 @@
-# src/cleaning.py
+ # src/cleaning.py
 import pandas as pd
 import numpy as np
 import duckdb
@@ -30,7 +30,14 @@ def clean_cotton(con):
         FROM raw_cotton
         ORDER BY region, year
     """).df()
+    
+    # Convert - and ... to nan and remove whitespaces
+    df["region"] = df["region"].str.strip()
 
+    df["yield_tonnes"] = pd.to_numeric(df["yield_tonnes"].replace(["-", "…", "..."], np.nan),errors="coerce")
+  
+
+    
     log(f"  Rows loaded from raw_cotton: {len(df)}")
     log(f"  Null yields: {df['yield_tonnes'].isnull().sum()}")
 
