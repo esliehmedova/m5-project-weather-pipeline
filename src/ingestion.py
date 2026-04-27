@@ -33,7 +33,7 @@ def get_openmeteo_client():
     return openmeteo_requests.Client(session=retry_session)
 
 
-def fetch_weather_for_location(client, name, lat, lon, start_year, end_year):
+def fetch_weather_for_location(client, name, lat, lon, start_year=None, end_year=None):
     log(f"  Fetching weather for {name} ({start_year}–{end_year})...")
 
     params = {
@@ -83,36 +83,73 @@ def ingest_all_weather(con):
     all_dfs = []
 
     log("=" * 55)
-    log("STEP 1 — Weather Ingestion")
+    log("STEP 1 — Weather Ingestion (Incremental)")
     log("=" * 55)
 
+    # Check what years already exist in DuckDB per station
+    existing_years = {}
+    try:
+        for name in LOCATIONS.keys():
+            result = con.execute(f"""
+                SELECT MAX(year) as max_year
+                FROM raw_weather
+                WHERE region = '{name}'
+            """).fetchone()
+            existing_years[name] = result[0] if result[0] else None
+    except Exception:
+        existing_years = {name: None for name in LOCATIONS.keys()}
+
     for name, info in LOCATIONS.items():
+        last_year = existing_years.get(name)
+
+        if last_year is None:
+            # No data yet — fetch everything
+            start_year = WEATHER_START_YEAR
+            log(f"  {name}: no existing data → fetching {start_year}–{WEATHER_END_YEAR}")
+
+        elif last_year >= WEATHER_END_YEAR:
+            # Already up to date — skip
+            log(f"  {name}: already up to date (last year={last_year}) ✓ skipping")
+            continue
+
+        else:
+            # Only fetch new years
+            start_year = last_year + 1
+            log(f"  {name}: existing up to {last_year} → fetching {start_year}–{WEATHER_END_YEAR}")
+
         df = fetch_weather_for_location(
             client, name,
             info["lat"], info["lon"],
-            WEATHER_START_YEAR, WEATHER_END_YEAR
-        )
+            start_year, WEATHER_END_YEAR
+        ) 
+
         save_path = os.path.join(RAW_WEATHER_DIR, f"{name.lower()}_daily.csv")
+
+        # If file already exists append new rows, otherwise create fresh
+        if os.path.exists(save_path) and last_year is not None:
+            existing_df = pd.read_csv(save_path)
+            df = pd.concat([existing_df, df], ignore_index=True)
+            log(f"    Appended new rows → {save_path}")
+        else:
+            log(f"    Created new file → {save_path}")
+
         df.to_csv(save_path, index=False)
-        log(f"    Saved {len(df)} rows → {save_path}")
+        log(f"    Total rows saved: {len(df)}")
         all_dfs.append(df)
 
-    combined = pd.concat(all_dfs, ignore_index=True)
+    if all_dfs:
+        combined = pd.concat(all_dfs, ignore_index=True)
+        con.execute("DROP TABLE IF EXISTS raw_weather")
+        con.execute("CREATE TABLE raw_weather AS SELECT * FROM combined")
+        count = con.execute("SELECT COUNT(*) FROM raw_weather").fetchone()[0]
+        log(f"\n  raw_weather → DuckDB updated ✓")
+        log(f"  Total rows:  {count}")
+        log(f"  Stations:    {len(LOCATIONS)}")
+    else:
+        log("\n  All weather data already up to date ✓")
+        log("  raw_weather table unchanged")
 
-    # Save to DuckDB
-    con.execute("DROP TABLE IF EXISTS raw_weather")
-    con.execute("""
-        CREATE TABLE raw_weather AS
-        SELECT * FROM combined
-    """)
-
-    count = con.execute("SELECT COUNT(*) FROM raw_weather").fetchone()[0]
-    log(f"\n  raw_weather table created in DuckDB")
-    log(f"  Total rows:  {count}")
-    log(f"  Stations:    {len(LOCATIONS)}")
-    log(f"  Date range:  {WEATHER_START_YEAR}-01-01 → {WEATHER_END_YEAR}-12-31")
-
-    return combined
+    return combined if all_dfs else None
 
 
 def ingest_cotton(con):
