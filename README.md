@@ -15,8 +15,7 @@ The project integrates two primary data streams to build a comprehensive agricul
 
    -Open-Meteo API : Provides long-term daily weather data without requiring an API key, ensuring high reproducibility. 
 
-   -Archive API: Used for 24+ years of daily historical data (temp, rain, humidity, etc.).  
-
+         -Archive API: Used for 24+ years of daily historical data (temp, rain, humidity, etc.). 
 
    - Station Mapping: Since not every district has a weather station, districts were geographically mapped to the nearest of 5 major stations: Ganja, Sabirabad,        Lankaran, Shamkir, and Nakhchivan.
 
