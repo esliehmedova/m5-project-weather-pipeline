@@ -14,7 +14,7 @@ LOGS_DIR        = os.path.join(BASE_DIR, "logs")
 
 # ── Weather API ───────────────────────────────────────────────────────────────
 WEATHER_START_YEAR = 2000
-WEATHER_END_YEAR   = 2024
+WEATHER_END_YEAR   = 2026
 TIMEZONE           = "Asia/Baku"
 
 WEATHER_VARIABLES = [
@@ -82,4 +82,4 @@ STAGES = {
 
 # ── Model settings ────────────────────────────────────────────────────────────
 TRAIN_UNTIL_YEAR  = 2021
-PREDICT_YEARS     = [2025, 2026] 
+PREDICT_YEARS     = [2025]

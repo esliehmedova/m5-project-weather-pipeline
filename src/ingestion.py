@@ -36,19 +36,26 @@ def get_openmeteo_client():
 def fetch_weather_for_location(client, name, lat, lon, start_year=None, end_year=None):
     log(f"  Fetching weather for {name} ({start_year}–{end_year})...")
 
+    from datetime import date
+    today = date.today()
+
+    end_date = f"{end_year}-12-31"
+    if end_year == today.year:
+        end_date = str(today)
+
     params = {
-        "latitude":   lat,
-        "longitude":  lon,
+        "latitude": lat,
+        "longitude": lon,
         "start_date": f"{start_year}-01-01",
-        "end_date":   f"{end_year}-12-31",
-        "daily":      WEATHER_VARIABLES,
-        "timezone":   TIMEZONE
+        "end_date": end_date,
+        "daily": WEATHER_VARIABLES,
+        "timezone": TIMEZONE
     }
 
     responses = client.weather_api(
         "https://archive-api.open-meteo.com/v1/archive",
         params=params
-    )
+    ) 
     daily = responses[0].Daily()
 
     df = pd.DataFrame({
@@ -192,8 +199,8 @@ def run_ingestion():
     os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
     con = duckdb.connect(DB_PATH)
 
-    log("\n" + "=" * 55)
-    log("MEMBER 1 — DATA INGESTION PIPELINE")
+    log("\n" + "=" * 55) 
+    log("MEMBER 1 — DATA INGESTION PIPELINE") 
     log("=" * 55)
 
     ingest_all_weather(con)
@@ -214,4 +221,4 @@ def run_ingestion():
 
 
 if __name__ == "__main__":
-    run_ingestion() 
+    run_ingestion()  
