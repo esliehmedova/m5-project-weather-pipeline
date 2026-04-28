@@ -127,7 +127,3 @@ The model is specifically designed to identify the following physical threats to
 
 - **Harvest Quality Risk:**  Unseasonable rainfall or humidity (>70%) during the Harvest stage (Sept–Nov) that can degrade the fiber quality and make picking difficult.
 
-
-```python
-
-```
