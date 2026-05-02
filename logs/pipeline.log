@@ -1,174 +1,1643 @@
-[2026-04-23 23:42:20] 
+[2026-04-28 21:42:40] 
 =======================================================
-[2026-04-23 23:42:20] MEMBER 1 — DATA INGESTION PIPELINE
-[2026-04-23 23:42:20] =======================================================
-[2026-04-23 23:42:20] =======================================================
-[2026-04-23 23:42:20] STEP 1 — Weather Ingestion
-[2026-04-23 23:42:20] =======================================================
-[2026-04-23 23:42:20]   Fetching weather for Ganja (2000–2024)...
-[2026-04-23 23:42:20]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\ganja_daily.csv
-[2026-04-23 23:42:20]   Fetching weather for Shamkir (2000–2024)...
-[2026-04-23 23:42:20]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\shamkir_daily.csv
-[2026-04-23 23:42:20]   Fetching weather for Sabirabad (2000–2024)...
-[2026-04-23 23:42:20]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\sabirabad_daily.csv
-[2026-04-23 23:42:20]   Fetching weather for Lankaran (2000–2024)...
-[2026-04-23 23:42:20]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\lankaran_daily.csv
-[2026-04-23 23:42:20]   Fetching weather for Nakhchivan (2000–2024)...
-[2026-04-23 23:42:20]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\nakhchivan_daily.csv
-[2026-04-23 23:42:20] 
-  raw_weather table created in DuckDB
-[2026-04-23 23:42:20]   Total rows:  45660
-[2026-04-23 23:42:20]   Stations:    5
-[2026-04-23 23:42:20]   Date range:  2000-01-01 → 2024-12-31
-[2026-04-23 23:42:20] =======================================================
-[2026-04-23 23:42:20] STEP 2 — Cotton Dataset Ingestion
-[2026-04-23 23:42:20] =======================================================
-[2026-04-23 23:42:54] 
+[2026-04-28 21:42:40] MEMBER 1 — DATA INGESTION PIPELINE
+[2026-04-28 21:42:40] =======================================================
+[2026-04-28 21:42:40] =======================================================
+[2026-04-28 21:42:40] STEP 1 — Weather Ingestion (Incremental)
+[2026-04-28 21:42:40] =======================================================
+[2026-04-28 21:42:40]   Goranboy district: no existing data → fetching 2000–2026
+[2026-04-28 21:42:40]   Fetching weather for Goranboy district (2000–2026)...
+[2026-04-28 21:42:42]     Created new file → C:\Users\User\Desktop\m5-project-weather-pipeline\data\raw\weather\goranboy_district_daily.csv
+[2026-04-28 21:42:42]     Total rows saved: 9615
+[2026-04-28 21:42:42]   Kurdamir district: no existing data → fetching 2000–2026
+[2026-04-28 21:42:42]   Fetching weather for Kurdamir district (2000–2026)...
+[2026-04-28 21:42:44]     Created new file → C:\Users\User\Desktop\m5-project-weather-pipeline\data\raw\weather\kurdamir_district_daily.csv
+[2026-04-28 21:42:44]     Total rows saved: 9615
+[2026-04-28 21:42:44]   Yevlakh district: no existing data → fetching 2000–2026
+[2026-04-28 21:42:44]   Fetching weather for Yevlakh district (2000–2026)...
+[2026-04-28 21:42:44]     Created new file → C:\Users\User\Desktop\m5-project-weather-pipeline\data\raw\weather\yevlakh_district_daily.csv
+[2026-04-28 21:42:44]     Total rows saved: 9615
+[2026-04-28 21:42:44]   Zardab district: no existing data → fetching 2000–2026
+[2026-04-28 21:42:44]   Fetching weather for Zardab district (2000–2026)...
+[2026-04-28 21:46:43] 
 =======================================================
-[2026-04-23 23:42:54] MEMBER 1 — DATA INGESTION PIPELINE
-[2026-04-23 23:42:54] =======================================================
-[2026-04-23 23:42:54] =======================================================
-[2026-04-23 23:42:54] STEP 1 — Weather Ingestion
-[2026-04-23 23:42:54] =======================================================
-[2026-04-23 23:42:54]   Fetching weather for Ganja (2000–2024)...
-[2026-04-23 23:42:54]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\ganja_daily.csv
-[2026-04-23 23:42:54]   Fetching weather for Shamkir (2000–2024)...
-[2026-04-23 23:42:54]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\shamkir_daily.csv
-[2026-04-23 23:42:54]   Fetching weather for Sabirabad (2000–2024)...
-[2026-04-23 23:42:54]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\sabirabad_daily.csv
-[2026-04-23 23:42:54]   Fetching weather for Lankaran (2000–2024)...
-[2026-04-23 23:42:55]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\lankaran_daily.csv
-[2026-04-23 23:42:55]   Fetching weather for Nakhchivan (2000–2024)...
-[2026-04-23 23:42:55]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\nakhchivan_daily.csv
-[2026-04-23 23:42:55] 
-  raw_weather table created in DuckDB
-[2026-04-23 23:42:55]   Total rows:  45660
-[2026-04-23 23:42:55]   Stations:    5
-[2026-04-23 23:42:55]   Date range:  2000-01-01 → 2024-12-31
-[2026-04-23 23:42:55] =======================================================
-[2026-04-23 23:42:55] STEP 2 — Cotton Dataset Ingestion
-[2026-04-23 23:42:55] =======================================================
-[2026-04-23 23:43:15] 
+[2026-04-28 21:46:43] MEMBER 1 — DATA INGESTION PIPELINE
+[2026-04-28 21:46:43] =======================================================
+[2026-04-28 21:46:43] =======================================================
+[2026-04-28 21:46:43] STEP 1 — Weather Ingestion (Incremental)
+[2026-04-28 21:46:43] =======================================================
+[2026-04-28 21:46:43]   Goranboy district: CSV recovered from disk (max year=2026)
+[2026-04-28 21:46:43]   Kurdamir district: CSV recovered from disk (max year=2026)
+[2026-04-28 21:46:43]   Yevlakh district: CSV recovered from disk (max year=2026)
+[2026-04-28 21:46:43]   Goranboy district: already up to date (last year=2026) ✓ skipping
+[2026-04-28 21:46:43]   Kurdamir district: already up to date (last year=2026) ✓ skipping
+[2026-04-28 21:46:43]   Yevlakh district: already up to date (last year=2026) ✓ skipping
+[2026-04-28 21:46:43]   Zardab district: no existing data → fetching 2000–2026
+[2026-04-28 21:46:43]   Fetching weather for Zardab district (2000–2026)...
+[2026-04-28 21:46:46]     Created new file → C:\Users\User\Desktop\m5-project-weather-pipeline\data\raw\weather\zardab_district_daily.csv
+[2026-04-28 21:46:47]     Total rows saved: 9615
+[2026-04-28 21:46:47]   Tartar district: no existing data → fetching 2000–2026
+[2026-04-28 21:46:47]     Waiting 20s to respect API rate limit...
+[2026-04-28 21:47:07]   Fetching weather for Tartar district (2000–2026)...
+[2026-04-28 21:47:10]     Created new file → C:\Users\User\Desktop\m5-project-weather-pipeline\data\raw\weather\tartar_district_daily.csv
+[2026-04-28 21:47:10]     Total rows saved: 9615
+[2026-04-28 21:47:10]   Aghdam district: no existing data → fetching 2000–2026
+[2026-04-28 21:47:10]     Waiting 20s to respect API rate limit...
+[2026-04-28 21:47:30]   Fetching weather for Aghdam district (2000–2026)...
+[2026-04-28 21:47:31]     Created new file → C:\Users\User\Desktop\m5-project-weather-pipeline\data\raw\weather\aghdam_district_daily.csv
+[2026-04-28 21:47:31]     Total rows saved: 9615
+[2026-04-28 21:47:31]   Sabirabad district: no existing data → fetching 2000–2026
+[2026-04-28 21:47:31]     Waiting 20s to respect API rate limit...
+[2026-04-28 21:47:51]   Fetching weather for Sabirabad district (2000–2026)...
+[2026-04-28 21:47:52]     Created new file → C:\Users\User\Desktop\m5-project-weather-pipeline\data\raw\weather\sabirabad_district_daily.csv
+[2026-04-28 21:47:52]     Total rows saved: 9615
+[2026-04-28 21:47:52]   Saatli district: no existing data → fetching 2000–2026
+[2026-04-28 21:47:52]     Waiting 20s to respect API rate limit...
+[2026-04-28 21:48:12]   Fetching weather for Saatli district (2000–2026)...
+[2026-04-28 21:48:13]     Created new file → C:\Users\User\Desktop\m5-project-weather-pipeline\data\raw\weather\saatli_district_daily.csv
+[2026-04-28 21:48:14]     Total rows saved: 9615
+[2026-04-28 21:48:14]   Imishli district: no existing data → fetching 2000–2026
+[2026-04-28 21:48:14]     Waiting 20s to respect API rate limit...
+[2026-04-28 21:48:34]   Fetching weather for Imishli district (2000–2026)...
+[2026-04-28 21:48:34]     Created new file → C:\Users\User\Desktop\m5-project-weather-pipeline\data\raw\weather\imishli_district_daily.csv
+[2026-04-28 21:48:34]     Total rows saved: 9615
+[2026-04-28 21:48:34]   Beylagan district: no existing data → fetching 2000–2026
+[2026-04-28 21:48:34]     Waiting 20s to respect API rate limit...
+[2026-04-28 21:48:54]   Fetching weather for Beylagan district (2000–2026)...
+[2026-04-28 21:48:56]     Created new file → C:\Users\User\Desktop\m5-project-weather-pipeline\data\raw\weather\beylagan_district_daily.csv
+[2026-04-28 21:48:56]     Total rows saved: 9615
+[2026-04-28 21:48:56]   Aghjabadi district: no existing data → fetching 2000–2026
+[2026-04-28 21:48:56]     Waiting 20s to respect API rate limit...
+[2026-04-28 21:49:16]   Fetching weather for Aghjabadi district (2000–2026)...
+[2026-04-28 21:49:17]     Created new file → C:\Users\User\Desktop\m5-project-weather-pipeline\data\raw\weather\aghjabadi_district_daily.csv
+[2026-04-28 21:49:17]     Total rows saved: 9615
+[2026-04-28 21:49:17]   Barda district: no existing data → fetching 2000–2026
+[2026-04-28 21:49:17]     Waiting 20s to respect API rate limit...
+[2026-04-28 21:49:37]   Fetching weather for Barda district (2000–2026)...
+[2026-04-28 21:49:39]     Created new file → C:\Users\User\Desktop\m5-project-weather-pipeline\data\raw\weather\barda_district_daily.csv
+[2026-04-28 21:49:39]     Total rows saved: 9615
+[2026-04-28 21:49:39]   Bilasuvar district: no existing data → fetching 2000–2026
+[2026-04-28 21:49:39]     Waiting 20s to respect API rate limit...
+[2026-04-28 21:49:59]   Fetching weather for Bilasuvar district (2000–2026)...
+[2026-04-28 21:50:05]     Created new file → C:\Users\User\Desktop\m5-project-weather-pipeline\data\raw\weather\bilasuvar_district_daily.csv
+[2026-04-28 21:50:05]     Total rows saved: 9615
+[2026-04-28 21:50:05]   Neftchala district: no existing data → fetching 2000–2026
+[2026-04-28 21:50:05]     Waiting 20s to respect API rate limit...
+[2026-04-28 21:50:25]   Fetching weather for Neftchala district (2000–2026)...
+[2026-04-28 21:50:29]     Created new file → C:\Users\User\Desktop\m5-project-weather-pipeline\data\raw\weather\neftchala_district_daily.csv
+[2026-04-28 21:50:29]     Total rows saved: 9615
+[2026-04-28 21:50:29]   Salyan district: no existing data → fetching 2000–2026
+[2026-04-28 21:50:29]     Waiting 20s to respect API rate limit...
+[2026-04-28 21:50:49]   Fetching weather for Salyan district (2000–2026)...
+[2026-04-28 21:50:54]     Created new file → C:\Users\User\Desktop\m5-project-weather-pipeline\data\raw\weather\salyan_district_daily.csv
+[2026-04-28 21:50:54]     Total rows saved: 9615
+[2026-04-28 21:50:54] 
+  raw_weather → DuckDB updated ✓
+[2026-04-28 21:50:54]   Total rows:  144225
+[2026-04-28 21:50:54]   Stations:    15
+[2026-04-28 21:50:54] =======================================================
+[2026-04-28 21:50:54] STEP 2 — Cotton Dataset Ingestion
+[2026-04-28 21:50:54] =======================================================
+[2026-04-28 21:56:01] 
 =======================================================
-[2026-04-23 23:43:15] MEMBER 1 — DATA INGESTION PIPELINE
-[2026-04-23 23:43:15] =======================================================
-[2026-04-23 23:43:15] =======================================================
-[2026-04-23 23:43:15] STEP 1 — Weather Ingestion
-[2026-04-23 23:43:15] =======================================================
-[2026-04-23 23:43:15]   Fetching weather for Ganja (2000–2024)...
-[2026-04-23 23:43:15]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\ganja_daily.csv
-[2026-04-23 23:43:15]   Fetching weather for Shamkir (2000–2024)...
-[2026-04-23 23:43:15]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\shamkir_daily.csv
-[2026-04-23 23:43:15]   Fetching weather for Sabirabad (2000–2024)...
-[2026-04-23 23:43:15]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\sabirabad_daily.csv
-[2026-04-23 23:43:15]   Fetching weather for Lankaran (2000–2024)...
-[2026-04-23 23:43:15]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\lankaran_daily.csv
-[2026-04-23 23:43:15]   Fetching weather for Nakhchivan (2000–2024)...
-[2026-04-23 23:43:15]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\nakhchivan_daily.csv
-[2026-04-23 23:43:15] 
-  raw_weather table created in DuckDB
-[2026-04-23 23:43:15]   Total rows:  45660
-[2026-04-23 23:43:15]   Stations:    5
-[2026-04-23 23:43:15]   Date range:  2000-01-01 → 2024-12-31
-[2026-04-23 23:43:15] =======================================================
-[2026-04-23 23:43:15] STEP 2 — Cotton Dataset Ingestion
-[2026-04-23 23:43:15] =======================================================
-[2026-04-23 23:43:15]   Raw shape after reshape: (725, 3)
-[2026-04-23 23:43:15]   Nulls in yield:          0
-[2026-04-23 23:43:15]   Districts:               29
-[2026-04-23 23:43:15]   Years:                   2000 – 2024
-[2026-04-23 23:43:15] 
+[2026-04-28 21:56:01] MEMBER 1 — DATA INGESTION PIPELINE
+[2026-04-28 21:56:01] =======================================================
+[2026-04-28 21:56:01] =======================================================
+[2026-04-28 21:56:01] STEP 1 — Weather Ingestion (Incremental)
+[2026-04-28 21:56:01] =======================================================
+[2026-04-28 21:56:01]   Goranboy district: already up to date (last year=2026) ✓ skipping
+[2026-04-28 21:56:01]   Kurdamir district: already up to date (last year=2026) ✓ skipping
+[2026-04-28 21:56:01]   Yevlakh district: already up to date (last year=2026) ✓ skipping
+[2026-04-28 21:56:01]   Zardab district: already up to date (last year=2026) ✓ skipping
+[2026-04-28 21:56:01]   Tartar district: already up to date (last year=2026) ✓ skipping
+[2026-04-28 21:56:01]   Aghdam district: already up to date (last year=2026) ✓ skipping
+[2026-04-28 21:56:01]   Sabirabad district: already up to date (last year=2026) ✓ skipping
+[2026-04-28 21:56:01]   Saatli district: already up to date (last year=2026) ✓ skipping
+[2026-04-28 21:56:01]   Imishli district: already up to date (last year=2026) ✓ skipping
+[2026-04-28 21:56:01]   Beylagan district: already up to date (last year=2026) ✓ skipping
+[2026-04-28 21:56:01]   Aghjabadi district: already up to date (last year=2026) ✓ skipping
+[2026-04-28 21:56:01]   Barda district: already up to date (last year=2026) ✓ skipping
+[2026-04-28 21:56:01]   Bilasuvar district: already up to date (last year=2026) ✓ skipping
+[2026-04-28 21:56:01]   Neftchala district: already up to date (last year=2026) ✓ skipping
+[2026-04-28 21:56:01]   Salyan district: already up to date (last year=2026) ✓ skipping
+[2026-04-28 21:56:01] 
+  raw_weather → DuckDB updated ✓
+[2026-04-28 21:56:01]   Total rows:  144225
+[2026-04-28 21:56:01]   Stations:    15
+[2026-04-28 21:56:01] =======================================================
+[2026-04-28 21:56:01] STEP 2 — Cotton Dataset Ingestion
+[2026-04-28 21:56:01] =======================================================
+[2026-04-28 21:56:01]   Raw shape after reshape: (725, 3)
+[2026-04-28 21:56:01]   Nulls in yield:          0
+[2026-04-28 21:56:01]   Districts:               29
+[2026-04-28 21:56:01]   Years:                   2000 – 2024
+[2026-04-28 21:56:01] 
   raw_cotton table created in DuckDB
-[2026-04-23 23:43:15] 
+[2026-04-28 21:56:01] 
 =======================================================
-[2026-04-23 23:43:15] INGESTION COMPLETE — DuckDB Tables Created:
-[2026-04-23 23:43:15] =======================================================
-[2026-04-23 23:43:15]   raw_cotton              725 rows    3 cols
-[2026-04-23 23:43:15]   raw_weather           45660 rows   13 cols
-[2026-04-23 23:43:15] 
-DuckDB saved → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\cotton_project.duckdb
-[2026-04-23 23:43:15] 
+[2026-04-28 21:56:01] INGESTION COMPLETE — DuckDB Tables Created:
+[2026-04-28 21:56:01] =======================================================
+[2026-04-28 21:56:01]   raw_cotton              725 rows    3 cols
+[2026-04-28 21:56:01]   raw_weather          144225 rows    9 cols
+[2026-04-28 21:56:01] 
+DuckDB saved → C:\Users\User\Desktop\m5-project-weather-pipeline\data\cotton_project.duckdb
+[2026-04-28 22:02:03] 
 =======================================================
-[2026-04-23 23:43:15] MEMBER 1 — DATA CLEANING PIPELINE
-[2026-04-23 23:43:15] =======================================================
-[2026-04-23 23:43:15] =======================================================
-[2026-04-23 23:43:15] STEP 3 — Cleaning Cotton Dataset
-[2026-04-23 23:43:15] =======================================================
-[2026-04-23 23:43:15]   Rows loaded from raw_cotton: 725
-[2026-04-23 23:43:15]   Null yields: 0
-[2026-04-23 23:43:15]   No null districts found.
-[2026-04-23 23:43:15] 
-  Unmapped districts dropped:
-[2026-04-23 23:43:15]     ✗ Aghdam district 
-[2026-04-23 23:43:15]     ✗ Aghjabadi district 
-[2026-04-23 23:43:15]     ✗ Barda district 
-[2026-04-23 23:43:15]     ✗ Fuzuli district 
-[2026-04-23 23:43:15]     ✗ Khojaly district 
-[2026-04-23 23:43:15]     ✗ Khojavand district 
-[2026-04-23 23:43:15]     ✗ Tartar district 
-[2026-04-23 23:43:15] 
-  Rows after cleaning:  550
-[2026-04-23 23:43:15]   Districts remaining:  22
-[2026-04-23 23:43:15]   Nulls remaining:      0
-[2026-04-23 23:43:15]   clean_cotton table saved to DuckDB ✓
-[2026-04-23 23:43:15] =======================================================
-[2026-04-23 23:43:15] STEP 4 — Cleaning Weather Dataset
-[2026-04-23 23:43:15] =======================================================
-[2026-04-23 23:43:15]   Rows loaded from raw_weather: 45655
-[2026-04-23 23:43:15]   Sensor errors fixed.
-[2026-04-23 23:43:15]   Nulls after interpolation:
-[2026-04-23 23:43:15]   clean_weather table saved to DuckDB ✓
-[2026-04-23 23:43:15] =======================================================
-[2026-04-23 23:43:15] STEP 5 — Alignment Verification
-[2026-04-23 23:43:15] =======================================================
-[2026-04-23 23:43:15]   Cotton years:     2000 – 2024
-[2026-04-23 23:43:15]   Cotton districts: 22
-[2026-04-23 23:43:15]   Weather years:    2000 – 2024
-[2026-04-23 23:43:15]   Weather stations: 5
-[2026-04-23 23:43:15]   All districts have matching weather stations ✓
-[2026-04-23 23:43:15] 
+[2026-04-28 22:02:03] MEMBER 2 — FEATURE ENGINEERING PIPELINE
+[2026-04-28 22:02:03] =======================================================
+[2026-04-28 22:02:03] =======================================================
+[2026-04-28 22:02:03] STEP 6 — Building Growth Stage Features
+[2026-04-28 22:02:03] =======================================================
+[2026-04-28 22:03:15] 
 =======================================================
-[2026-04-23 23:43:15] CLEANING COMPLETE — DuckDB Tables:
-[2026-04-23 23:43:15] =======================================================
-[2026-04-23 23:43:15]   clean_cotton                 550 rows    4 cols
-[2026-04-23 23:43:15]   clean_weather              45655 rows   13 cols
-[2026-04-23 23:43:15]   raw_cotton                   725 rows    3 cols
-[2026-04-23 23:43:15]   raw_weather                45660 rows   13 cols
-[2026-04-23 23:59:42] =======================================================
-[2026-04-23 23:59:42] STEP 2 — Cotton Dataset Ingestion
-[2026-04-23 23:59:42] =======================================================
-[2026-04-23 23:59:42]   Raw shape after reshape: (725, 3)
-[2026-04-23 23:59:42]   Nulls in yield:          0
-[2026-04-23 23:59:42]   Districts:               29
-[2026-04-23 23:59:42]   Years:                   2000 – 2024
-[2026-04-23 23:59:42] 
+[2026-04-28 22:03:15] MEMBER 1 — DATA CLEANING PIPELINE
+[2026-04-28 22:03:15] =======================================================
+[2026-04-28 22:03:15] =======================================================
+[2026-04-28 22:03:15] STEP 3 — Cleaning Cotton Dataset
+[2026-04-28 22:03:15] =======================================================
+[2026-04-28 22:03:15]    Rows loaded from raw_cotton: 725
+[2026-04-28 22:03:15]    Null yields: 191
+[2026-04-28 22:03:15] 
+  Districts dropped (had null values):
+[2026-04-28 22:03:15]     ✗ Agdash district
+[2026-04-28 22:03:15]     ✗ Aghdara district
+[2026-04-28 22:03:15]     ✗ Aghsu district
+[2026-04-28 22:03:15]     ✗ Fuzuli district
+[2026-04-28 22:03:15]     ✗ Ganja city
+[2026-04-28 22:03:15]     ✗ Goychay district
+[2026-04-28 22:03:15]     ✗ Hajigabul district
+[2026-04-28 22:03:15]     ✗ Jabrayil district
+[2026-04-28 22:03:15]     ✗ Jalilabad district
+[2026-04-28 22:03:15]     ✗ Khojaly district
+[2026-04-28 22:03:15]     ✗ Khojavand district
+[2026-04-28 22:03:15]     ✗ Lachin district
+[2026-04-28 22:03:15]     ✗ Samukh district
+[2026-04-28 22:03:15]     ✗ Ujar district
+[2026-04-28 22:03:15] 
+  Rows after cleaning:  375
+[2026-04-28 22:03:15]   Districts remaining:  15
+[2026-04-28 22:03:15]   Nulls remaining:      0
+[2026-04-28 22:03:15]   clean_cotton table saved to DuckDB ✓
+[2026-04-28 22:03:15] =======================================================
+[2026-04-28 22:03:15] STEP 4 — Cleaning Weather Dataset
+[2026-04-28 22:03:15] =======================================================
+[2026-04-28 22:03:15]    Rows loaded from raw_weather (2000–2025): 142455
+[2026-04-28 22:03:15]    Sensor errors fixed.
+[2026-04-28 22:03:15]    Nulls after interpolation:
+[2026-04-28 22:03:15]    clean_weather table saved to DuckDB ✓
+[2026-04-28 22:03:15] =======================================================
+[2026-04-28 22:03:15] STEP 5 — Alignment Verification
+[2026-04-28 22:03:15] =======================================================
+[2026-04-28 22:03:15]    Cotton years:     2000 – 2024
+[2026-04-28 22:03:15]    Cotton districts: 15
+[2026-04-28 22:03:15]    Weather years:    2000 – 2025
+[2026-04-28 22:03:15]    Weather stations: 15
+[2026-04-28 22:03:15]   All districts have matching weather stations ✓
+[2026-04-28 22:03:15] 
+=======================================================
+[2026-04-28 22:03:15] CLEANING COMPLETE — DuckDB Tables:
+[2026-04-28 22:03:15] =======================================================
+[2026-04-28 22:03:15]   clean_cotton                 375 rows    4 cols
+[2026-04-28 22:03:15]   clean_weather             142455 rows    9 cols
+[2026-04-28 22:03:15]   raw_cotton                   725 rows    3 cols
+[2026-04-28 22:03:15]   raw_weather               144225 rows    9 cols
+[2026-04-28 22:03:25] 
+=======================================================
+[2026-04-28 22:03:25] MEMBER 2 — FEATURE ENGINEERING PIPELINE
+[2026-04-28 22:03:25] =======================================================
+[2026-04-28 22:03:25] =======================================================
+[2026-04-28 22:03:25] STEP 6 — Building Growth Stage Features
+[2026-04-28 22:03:25] =======================================================
+[2026-04-28 22:03:25]   Cotton rows:  375
+[2026-04-28 22:03:25]   Weather rows: 142455
+[2026-04-28 22:03:25]   Districts:    15
+[2026-04-28 22:03:25]   Processing 375 district-year combinations...
+[2026-04-28 22:03:26]   Processed 100/375 rows...
+[2026-04-28 22:03:26]   Processed 200/375 rows...
+[2026-04-28 22:03:27]   Processed 300/375 rows...
+[2026-04-28 22:03:27] 
+  Final shape:  (375, 44)
+[2026-04-28 22:03:27]   Districts:    15
+[2026-04-28 22:03:27]   Years:        2000 – 2024
+[2026-04-28 22:03:27]   Null check:   0 nulls
+[2026-04-28 22:03:27]   features → DuckDB ✓
+[2026-04-28 22:03:27] =======================================================
+[2026-04-28 22:03:27] STEP 7 — Building Risk Scores (for website only)
+[2026-04-28 22:03:27]          ⚠ These will NOT be used in model training
+[2026-04-28 22:03:27] =======================================================
+[2026-04-28 22:03:28] 
+  Risk label validation:
+[2026-04-28 22:03:28]     Safe  (label=0) avg yield: 23.4t
+[2026-04-28 22:03:28]     Risky (label=1) avg yield: 11.2t
+[2026-04-28 22:03:28]     Validation: PASSED ✓
+[2026-04-28 22:03:28] 
+  features_with_risk → DuckDB ✓
+[2026-04-28 22:03:28]   (used for website visualization only — NOT for model training)
+[2026-04-28 22:03:28] 
+=======================================================
+[2026-04-28 22:03:28] FEATURE ENGINEERING COMPLETE — DuckDB Tables:
+[2026-04-28 22:03:28] =======================================================
+[2026-04-28 22:03:28]   clean_cotton                 375 rows    4 cols
+[2026-04-28 22:03:28]   clean_weather             142455 rows    9 cols
+[2026-04-28 22:03:28]   features                     375 rows   44 cols
+[2026-04-28 22:03:28]   features_with_risk           375 rows   55 cols
+[2026-04-28 22:03:28]   raw_cotton                   725 rows    3 cols
+[2026-04-28 22:03:28]   raw_weather               144225 rows    9 cols
+[2026-04-28 22:03:28] 
+  Next: run src/models.py
+[2026-04-28 22:06:07] 
+=======================================================
+[2026-04-28 22:06:07] MEMBER 3 — QUALITY CHECKS
+[2026-04-28 22:06:07] =======================================================
+[2026-04-28 22:06:07] 
+Check 1 — Null values in features:
+[2026-04-28 22:06:07]   Total rows:    375
+[2026-04-28 22:06:07]   Total nulls:   0
+[2026-04-28 22:06:07]   PASSED ✓
+[2026-04-28 22:06:07] 
+Check 2 — Train/test split:
+[2026-04-28 22:06:07]   Train rows (≤2021): 330
+[2026-04-28 22:06:07]   Test  rows (>2021): 45
+[2026-04-28 22:06:07]   Districts:          15
+[2026-04-28 22:06:07]   PASSED ✓
+[2026-04-28 22:06:07] 
+Check 3 — Yield range sanity:
+[2026-04-28 22:06:07]   Min yield:  1.0 tonnes
+[2026-04-28 22:06:07]   Max yield:  43.2 tonnes
+[2026-04-28 22:06:07]   Mean yield: 18.8 tonnes
+[2026-04-28 22:06:07]   PASSED ✓
+[2026-04-28 22:06:07] 
+Check 4 — Year range coverage:
+[2026-04-28 22:06:07]   Years: 2000 – 2024
+[2026-04-28 22:06:07]   Total unique years: 25
+[2026-04-28 22:06:07]   PASSED ✓
+[2026-04-28 22:06:07] 
+Check 5 — Feature column integrity:
+[2026-04-28 22:06:07]   Columns found:    44
+[2026-04-28 22:06:07]   Columns expected: ≥44
+[2026-04-28 22:06:07]   PASSED ✓ — no risk/deviation columns, weather features intact
+[2026-04-28 22:06:07] 
+Check 6 — GDD values non-negative:
+[2026-04-28 22:06:07]   All 4 GDD columns non-negative ✓
+[2026-04-28 22:06:07]   PASSED ✓
+[2026-04-28 22:06:07] 
+Check 7 — District coverage:
+[2026-04-28 22:06:07]   Districts in features: 15
+[2026-04-28 22:06:07]     Aghdam district                25 years
+[2026-04-28 22:06:07]     Aghjabadi district             25 years
+[2026-04-28 22:06:07]     Barda district                 25 years
+[2026-04-28 22:06:07]     Beylagan district              25 years
+[2026-04-28 22:06:07]     Bilasuvar district             25 years
+[2026-04-28 22:06:07]     Goranboy district              25 years
+[2026-04-28 22:06:07]     Imishli district               25 years
+[2026-04-28 22:06:07]     Kurdamir district              25 years
+[2026-04-28 22:06:07]     Neftchala district             25 years
+[2026-04-28 22:06:07]     Saatli district                25 years
+[2026-04-28 22:06:07]     Sabirabad district             25 years
+[2026-04-28 22:06:07]     Salyan district                25 years
+[2026-04-28 22:06:07]     Tartar district                25 years
+[2026-04-28 22:06:07]     Yevlakh district               25 years
+[2026-04-28 22:06:07]     Zardab district                25 years
+[2026-04-28 22:06:07]   PASSED ✓ — all 15 districts present
+[2026-04-28 22:06:07] 
+  Quality checks complete. Proceeding to model training.
+[2026-04-28 22:11:07] 
+=======================================================
+[2026-04-28 22:11:07] MEMBER 3 — MODEL TRAINING & PREDICTION PIPELINE
+[2026-04-28 22:11:07] =======================================================
+[2026-04-28 22:11:07]   Loaded features: (375, 44)
+[2026-04-28 22:11:07]   Raw weather feature columns: 40
+[2026-04-28 22:11:07]   No leakage columns detected ✓
+[2026-04-28 22:11:07] 
+  Train rows (≤2021): 330
+[2026-04-28 22:11:07]   Test  rows (>2021): 45  (years 2022–2024)
+[2026-04-28 22:11:07] 
+  Selecting top features from training data...
+[2026-04-28 22:11:07] 
+  Top 20 features selected:
+[2026-04-28 22:11:07]     harvest_total_rain                            0.1491
+[2026-04-28 22:11:07]     planting_temp_mean                            0.0577
+[2026-04-28 22:11:07]     planting_GDD                                  0.0568
+[2026-04-28 22:11:07]     growing_humidity_mean                         0.0479
+[2026-04-28 22:11:07]     boll_forming_temp_mean                        0.0463
+[2026-04-28 22:11:07]     boll_forming_humidity_mean                    0.0461
+[2026-04-28 22:11:07]     boll_forming_GDD                              0.0450
+[2026-04-28 22:11:07]     growing_wind_mean                             0.0411
+[2026-04-28 22:11:07]     planting_total_rain                           0.0411
+[2026-04-28 22:11:07]     harvest_GDD                                   0.0407
+[2026-04-28 22:11:07]     harvest_humidity_mean                         0.0340
+[2026-04-28 22:11:07]     planting_max_dry_streak                       0.0322
+[2026-04-28 22:11:07]     harvest_wind_mean                             0.0311
+[2026-04-28 22:11:07]     planting_wind_mean                            0.0284
+[2026-04-28 22:11:07]     planting_humidity_mean                        0.0281
+[2026-04-28 22:11:07]     harvest_temp_mean                             0.0272
+[2026-04-28 22:11:07]     growing_total_rain                            0.0231
+[2026-04-28 22:11:07]     boll_forming_total_rain                       0.0228
+[2026-04-28 22:11:07]     growing_max_dry_streak                        0.0207
+[2026-04-28 22:11:07]     boll_forming_max_dry_streak                   0.0192
+[2026-04-28 22:11:07] 
+=======================================================
+[2026-04-28 22:11:07] STEP 8 — Training Risk Classifiers (4 stages)
+[2026-04-28 22:11:07] =======================================================
+[2026-04-28 22:11:07] 
+  PLANTING RISK CLASSIFIER:
+[2026-04-28 22:11:07]   Train label dist: {np.int64(0): np.int64(198), np.int64(1): np.int64(132)}
+[2026-04-28 22:11:07]   Test  label dist: {np.int64(0): np.int64(41), np.int64(1): np.int64(4)}
+[2026-04-28 22:11:07]               precision    recall  f1-score   support
+
+           0       0.98      1.00      0.99        41
+           1       1.00      0.75      0.86         4
+
+    accuracy                           0.98        45
+   macro avg       0.99      0.88      0.92        45
+weighted avg       0.98      0.98      0.98        45
+
+[2026-04-28 22:11:07]   Saved → C:\Users\User\Desktop\m5-project-weather-pipeline\models/risk_planting.pkl ✓
+[2026-04-28 22:11:08] 
+  GROWING RISK CLASSIFIER:
+[2026-04-28 22:11:08]   Train label dist: {np.int64(0): np.int64(198), np.int64(1): np.int64(132)}
+[2026-04-28 22:11:08]   Test  label dist: {np.int64(0): np.int64(44), np.int64(1): np.int64(1)}
+[2026-04-28 22:11:08]               precision    recall  f1-score   support
+
+           0       0.97      0.80      0.88        44
+           1       0.00      0.00      0.00         1
+
+    accuracy                           0.78        45
+   macro avg       0.49      0.40      0.44        45
+weighted avg       0.95      0.78      0.86        45
+
+[2026-04-28 22:11:08]   Saved → C:\Users\User\Desktop\m5-project-weather-pipeline\models/risk_growing.pkl ✓
+[2026-04-28 22:11:08] 
+  BOLL RISK CLASSIFIER:
+[2026-04-28 22:11:08]   Train label dist: {np.int64(0): np.int64(198), np.int64(1): np.int64(132)}
+[2026-04-28 22:11:08]   Test  label dist: {np.int64(0): np.int64(24), np.int64(1): np.int64(21)}
+[2026-04-28 22:11:08]               precision    recall  f1-score   support
+
+           0       0.83      0.79      0.81        24
+           1       0.77      0.81      0.79        21
+
+    accuracy                           0.80        45
+   macro avg       0.80      0.80      0.80        45
+weighted avg       0.80      0.80      0.80        45
+
+[2026-04-28 22:11:08]   Saved → C:\Users\User\Desktop\m5-project-weather-pipeline\models/risk_boll.pkl ✓
+[2026-04-28 22:11:09] 
+  HARVEST RISK CLASSIFIER:
+[2026-04-28 22:11:09]   Train label dist: {np.int64(0): np.int64(198), np.int64(1): np.int64(132)}
+[2026-04-28 22:11:09]   Test  label dist: {np.int64(0): np.int64(33), np.int64(1): np.int64(12)}
+[2026-04-28 22:11:09]               precision    recall  f1-score   support
+
+           0       0.85      0.70      0.77        33
+           1       0.44      0.67      0.53        12
+
+    accuracy                           0.69        45
+   macro avg       0.65      0.68      0.65        45
+weighted avg       0.74      0.69      0.70        45
+
+[2026-04-28 22:11:09]   Saved → C:\Users\User\Desktop\m5-project-weather-pipeline\models/risk_harvest.pkl ✓
+[2026-04-28 22:11:09] 
+=======================================================
+[2026-04-28 22:11:09] STEP 9 — Training Yield Prediction Models
+[2026-04-28 22:11:09] =======================================================
+[2026-04-28 22:11:09] 
+  Model                    CV-MAE  Test-MAE    RMSE      R²    MAPE
+[2026-04-28 22:11:09]   --------------------------------------------------------------
+[2026-04-28 22:11:09]   Ridge                      7.32     12.01   13.46 -16.632   39.7%
+[2026-04-28 22:11:16]   Random Forest              7.45     13.99   15.01 -20.942   46.2%
+[2026-04-28 22:11:18]   Gradient Boosting          7.35     13.98   14.91 -20.644   46.2%
+[2026-04-28 22:11:19]     Walk-forward fold 2010 failed: Must have at least 1 validation dataset for early stopping.
+[2026-04-28 22:11:19]     Walk-forward fold 2011 failed: Must have at least 1 validation dataset for early stopping.
+[2026-04-28 22:11:19]     Walk-forward fold 2012 failed: Must have at least 1 validation dataset for early stopping.
+[2026-04-28 22:11:19]     Walk-forward fold 2013 failed: Must have at least 1 validation dataset for early stopping.
+[2026-04-28 22:11:19]     Walk-forward fold 2014 failed: Must have at least 1 validation dataset for early stopping.
+[2026-04-28 22:11:19]     Walk-forward fold 2015 failed: Must have at least 1 validation dataset for early stopping.
+[2026-04-28 22:11:19]     Walk-forward fold 2016 failed: Must have at least 1 validation dataset for early stopping.
+[2026-04-28 22:11:19]     Walk-forward fold 2017 failed: Must have at least 1 validation dataset for early stopping.
+[2026-04-28 22:11:19]     Walk-forward fold 2018 failed: Must have at least 1 validation dataset for early stopping.
+[2026-04-28 22:11:19]     Walk-forward fold 2019 failed: Must have at least 1 validation dataset for early stopping.
+[2026-04-28 22:11:19]     Walk-forward fold 2020 failed: Must have at least 1 validation dataset for early stopping.
+[2026-04-28 22:11:19]     Walk-forward fold 2021 failed: Must have at least 1 validation dataset for early stopping.
+[2026-04-28 22:11:20]     Walk-forward fold 2010 failed: For early stopping, at least one dataset and eval metric is required for evaluation
+[2026-04-28 22:11:20]     Walk-forward fold 2011 failed: For early stopping, at least one dataset and eval metric is required for evaluation
+[2026-04-28 22:11:20]     Walk-forward fold 2012 failed: For early stopping, at least one dataset and eval metric is required for evaluation
+[2026-04-28 22:11:20]     Walk-forward fold 2013 failed: For early stopping, at least one dataset and eval metric is required for evaluation
+[2026-04-28 22:11:20]     Walk-forward fold 2014 failed: For early stopping, at least one dataset and eval metric is required for evaluation
+[2026-04-28 22:11:20]     Walk-forward fold 2015 failed: For early stopping, at least one dataset and eval metric is required for evaluation
+[2026-04-28 22:11:20]     Walk-forward fold 2016 failed: For early stopping, at least one dataset and eval metric is required for evaluation
+[2026-04-28 22:11:20]     Walk-forward fold 2017 failed: For early stopping, at least one dataset and eval metric is required for evaluation
+[2026-04-28 22:11:20]     Walk-forward fold 2018 failed: For early stopping, at least one dataset and eval metric is required for evaluation
+[2026-04-28 22:11:20]     Walk-forward fold 2019 failed: For early stopping, at least one dataset and eval metric is required for evaluation
+[2026-04-28 22:11:20]     Walk-forward fold 2020 failed: For early stopping, at least one dataset and eval metric is required for evaluation
+[2026-04-28 22:11:21]     Walk-forward fold 2021 failed: For early stopping, at least one dataset and eval metric is required for evaluation
+[2026-04-28 22:11:21] 
+  Best model by CV-MAE: Ridge ✓
+[2026-04-28 22:11:21]   Saved → C:\Users\User\Desktop\m5-project-weather-pipeline\models/yield_model.pkl ✓
+[2026-04-28 22:11:21] 
+=======================================================
+[2026-04-28 22:11:21] STEP 10 — Predicting for years: [2025, 2026]
+[2026-04-28 22:11:21] =======================================================
+[2026-04-28 22:11:21] 
+  Building features for 2025...
+[2026-04-28 22:11:21]   Built 15 feature rows for 2025 ✓
+[2026-04-28 22:11:21] 
+  Building features for 2026...
+[2026-04-28 22:11:21]   WARNING: No weather data for 2026 in clean_weather.
+[2026-04-28 22:11:21]   No feature data for 2026 — skipping.
+[2026-04-28 22:11:21]   predictions → DuckDB ✓
+[2026-04-28 22:11:21] 
+  =================================================================
+[2026-04-28 22:11:21]   2025 PREDICTIONS
+[2026-04-28 22:11:21]   =================================================================
+[2026-04-28 22:11:21]   District                         Pred    Avg     Chg  Plant  Grow  Boll  Harv
+[2026-04-28 22:11:21]   -----------------------------------------------------------------
+[2026-04-28 22:11:21]   Tartar district                  27.2   21.7   +25.3%    3%   37%   25%   28%
+[2026-04-28 22:11:21]   Barda district                   25.7   22.2   +15.8%    2%   39%   35%   27%
+[2026-04-28 22:11:21]   Beylagan district                23.8   19.0   +25.1%    9%   19%   35%   36%
+[2026-04-28 22:11:21]   Aghjabadi district               22.7   18.8   +20.6%    7%   21%   29%   43%
+[2026-04-28 22:11:21]   Goranboy district                22.4   17.4   +29.0%    2%   45%   15%   31%
+[2026-04-28 22:11:21]   Imishli district                 22.1   16.5   +34.2%    2%   21%   44%   26%
+[2026-04-28 22:11:21]   Aghdam district                  21.4   17.2   +24.6%   32%   18%   12%   91%
+[2026-04-28 22:11:21]   Saatli district                  20.5   19.0    +7.7%    4%   15%   62%   37%
+[2026-04-28 22:11:21]   Sabirabad district               20.2   13.8   +46.5%    3%   16%   43%   31%
+[2026-04-28 22:11:21]   Salyan district                  20.1   17.1   +17.5%   16%   11%   61%   43%
+[2026-04-28 22:11:21]   Zardab district                  19.6   11.2   +74.8%    2%   41%   57%   38%
+[2026-04-28 22:11:21]   Yevlakh district                 18.8   22.1   -14.8%    4%   44%   45%   50%
+[2026-04-28 22:11:21]   Bilasuvar district               17.1   17.6    -2.9%   16%   25%   57%   65%
+[2026-04-28 22:11:21]   Kurdamir district                15.6   11.6   +34.6%    7%   26%   33%   79%
+[2026-04-28 22:11:21]   Neftchala district               13.4   14.1    -4.9%   25%   35%   72%   76%
+[2026-04-28 22:11:21]   -----------------------------------------------------------------
+[2026-04-28 22:11:21]   TOTAL                           310.7  259.3
+[2026-04-28 22:11:21] 
+=======================================================
+[2026-04-28 22:11:21] MODEL PIPELINE COMPLETE — DuckDB Tables:
+[2026-04-28 22:11:21] =======================================================
+[2026-04-28 22:11:21]   clean_cotton                 375 rows    4 cols
+[2026-04-28 22:11:21]   clean_weather             142455 rows    9 cols
+[2026-04-28 22:11:21]   features                     375 rows   44 cols
+[2026-04-28 22:11:21]   features_with_risk           375 rows   55 cols
+[2026-04-28 22:11:21]   predictions                   15 rows    9 cols
+[2026-04-28 22:11:21]   raw_cotton                   725 rows    3 cols
+[2026-04-28 22:11:21]   raw_weather               144225 rows    9 cols
+[2026-04-28 22:11:21] 
+  Next: run src/pipeline.py
+[2026-04-28 22:22:15] 
+=======================================================
+[2026-04-28 22:22:15] MEMBER 3 — MODEL TRAINING & PREDICTION PIPELINE
+[2026-04-28 22:22:15] =======================================================
+[2026-04-28 22:22:15]   Loaded features: (375, 44)
+[2026-04-28 22:22:15]   No leakage columns detected ✓
+[2026-04-28 22:22:15] 
+  Train rows (≤2021): 330
+[2026-04-28 22:22:15]   Test  rows (>2021): 45  (years 2022–2024)
+[2026-04-28 22:22:15] 
+  Adding district mean yield and lag features...
+[2026-04-28 22:22:15]   district_mean_yield and lag_yield added ✓
+[2026-04-28 22:22:15] 
+  Selecting top features from training data...
+[2026-04-28 22:22:15] 
+  Top 20 features selected:
+[2026-04-28 22:22:15]     lag_yield                                     0.7144
+[2026-04-28 22:22:15]     harvest_humidity_mean                         0.0313
+[2026-04-28 22:22:15]     planting_temp_mean                            0.0246
+[2026-04-28 22:22:15]     harvest_total_rain                            0.0164
+[2026-04-28 22:22:15]     planting_GDD                                  0.0158
+[2026-04-28 22:22:15]     harvest_wind_mean                             0.0134
+[2026-04-28 22:22:15]     harvest_max_dry_streak                        0.0128
+[2026-04-28 22:22:15]     growing_wind_mean                             0.0115
+[2026-04-28 22:22:15]     growing_max_dry_streak                        0.0107
+[2026-04-28 22:22:15]     growing_total_rain                            0.0084
+[2026-04-28 22:22:15]     planting_humidity_mean                        0.0078
+[2026-04-28 22:22:15]     planting_wind_mean                            0.0075
+[2026-04-28 22:22:15]     boll_forming_max_dry_streak                   0.0072
+[2026-04-28 22:22:15]     harvest_rainy_days                            0.0071
+[2026-04-28 22:22:15]     district_mean_yield                           0.0069
+[2026-04-28 22:22:15]     growing_humidity_mean                         0.0068
+[2026-04-28 22:22:15]     harvest_temp_mean                             0.0066
+[2026-04-28 22:22:15]     planting_total_rain                           0.0063
+[2026-04-28 22:22:15]     growing_GDD                                   0.0060
+[2026-04-28 22:22:15]     boll_forming_GDD                              0.0060
+[2026-04-28 22:22:15]   Final feature set: 20 columns
+[2026-04-28 22:22:15] 
+=======================================================
+[2026-04-28 22:22:15] STEP 8 — Training Risk Classifiers (4 stages)
+[2026-04-28 22:22:15] =======================================================
+[2026-04-28 22:22:15] 
+  PLANTING RISK CLASSIFIER:
+[2026-04-28 22:22:15]   Train label dist: {np.int64(0): np.int64(396), np.int64(1): np.int64(264)}
+[2026-04-28 22:22:15]   Test  label dist: {np.int64(0): np.int64(41), np.int64(1): np.int64(4)}
+[2026-04-28 22:22:15]               precision    recall  f1-score   support
+
+           0       0.98      1.00      0.99        41
+           1       1.00      0.75      0.86         4
+
+    accuracy                           0.98        45
+   macro avg       0.99      0.88      0.92        45
+weighted avg       0.98      0.98      0.98        45
+
+[2026-04-28 22:22:15]   Saved → C:\Users\User\Desktop\m5-project-weather-pipeline\models/risk_planting.pkl ✓
+[2026-04-28 22:22:16] 
+  GROWING RISK CLASSIFIER:
+[2026-04-28 22:22:16]   Train label dist: {np.int64(0): np.int64(396), np.int64(1): np.int64(264)}
+[2026-04-28 22:22:16]   Test  label dist: {np.int64(0): np.int64(44), np.int64(1): np.int64(1)}
+[2026-04-28 22:22:16]               precision    recall  f1-score   support
+
+           0       0.98      0.91      0.94        44
+           1       0.00      0.00      0.00         1
+
+    accuracy                           0.89        45
+   macro avg       0.49      0.45      0.47        45
+weighted avg       0.95      0.89      0.92        45
+
+[2026-04-28 22:22:16]   Saved → C:\Users\User\Desktop\m5-project-weather-pipeline\models/risk_growing.pkl ✓
+[2026-04-28 22:22:16] 
+  BOLL RISK CLASSIFIER:
+[2026-04-28 22:22:16]   Train label dist: {np.int64(0): np.int64(396), np.int64(1): np.int64(264)}
+[2026-04-28 22:22:16]   Test  label dist: {np.int64(0): np.int64(24), np.int64(1): np.int64(21)}
+[2026-04-28 22:22:16]               precision    recall  f1-score   support
+
+           0       0.74      0.96      0.84        24
+           1       0.93      0.62      0.74        21
+
+    accuracy                           0.80        45
+   macro avg       0.84      0.79      0.79        45
+weighted avg       0.83      0.80      0.79        45
+
+[2026-04-28 22:22:16]   Saved → C:\Users\User\Desktop\m5-project-weather-pipeline\models/risk_boll.pkl ✓
+[2026-04-28 22:22:17] 
+  HARVEST RISK CLASSIFIER:
+[2026-04-28 22:22:17]   Train label dist: {np.int64(0): np.int64(396), np.int64(1): np.int64(264)}
+[2026-04-28 22:22:17]   Test  label dist: {np.int64(0): np.int64(33), np.int64(1): np.int64(12)}
+[2026-04-28 22:22:17]               precision    recall  f1-score   support
+
+           0       0.97      0.97      0.97        33
+           1       0.92      0.92      0.92        12
+
+    accuracy                           0.96        45
+   macro avg       0.94      0.94      0.94        45
+weighted avg       0.96      0.96      0.96        45
+
+[2026-04-28 22:22:17]   Saved → C:\Users\User\Desktop\m5-project-weather-pipeline\models/risk_harvest.pkl ✓
+[2026-04-28 22:22:17] 
+=======================================================
+[2026-04-28 22:22:17] STEP 9 — Training Yield Prediction Models
+[2026-04-28 22:22:17] =======================================================
+[2026-04-28 22:22:17] 
+  Model                    CV-MAE   CV-R²  Test-MAE  Test-R²    MAPE
+[2026-04-28 22:22:17]   --------------------------------------------------------------------
+[2026-04-28 22:22:17]   Ridge                      3.26   0.741      4.19   -1.452   13.7%
+[2026-04-28 22:22:27]   Random Forest              3.41   0.674      4.99   -2.720   16.5%
+[2026-04-28 22:23:15]   Gradient Boosting          4.50   0.513      7.68   -6.923   25.6%
+[2026-04-28 22:23:15]     Walk-forward fold 2008 failed: Must have at least 1 validation dataset for early stopping.
+[2026-04-28 22:23:15]     Walk-forward fold 2009 failed: Must have at least 1 validation dataset for early stopping.
+[2026-04-28 22:23:15]     Walk-forward fold 2010 failed: Must have at least 1 validation dataset for early stopping.
+[2026-04-28 22:23:15]     Walk-forward fold 2011 failed: Must have at least 1 validation dataset for early stopping.
+[2026-04-28 22:23:15]     Walk-forward fold 2012 failed: Must have at least 1 validation dataset for early stopping.
+[2026-04-28 22:23:15]     Walk-forward fold 2013 failed: Must have at least 1 validation dataset for early stopping.
+[2026-04-28 22:23:15]     Walk-forward fold 2014 failed: Must have at least 1 validation dataset for early stopping.
+[2026-04-28 22:23:15]     Walk-forward fold 2015 failed: Must have at least 1 validation dataset for early stopping.
+[2026-04-28 22:23:15]     Walk-forward fold 2016 failed: Must have at least 1 validation dataset for early stopping.
+[2026-04-28 22:23:15]     Walk-forward fold 2017 failed: Must have at least 1 validation dataset for early stopping.
+[2026-04-28 22:23:15]     Walk-forward fold 2018 failed: Must have at least 1 validation dataset for early stopping.
+[2026-04-28 22:23:15]     Walk-forward fold 2019 failed: Must have at least 1 validation dataset for early stopping.
+[2026-04-28 22:23:15]     Walk-forward fold 2020 failed: Must have at least 1 validation dataset for early stopping.
+[2026-04-28 22:23:15]     Walk-forward fold 2021 failed: Must have at least 1 validation dataset for early stopping.
+[2026-04-28 22:23:17]     Walk-forward fold 2008 failed: For early stopping, at least one dataset and eval metric is required for evaluation
+[2026-04-28 22:23:17]     Walk-forward fold 2009 failed: For early stopping, at least one dataset and eval metric is required for evaluation
+[2026-04-28 22:23:17]     Walk-forward fold 2010 failed: For early stopping, at least one dataset and eval metric is required for evaluation
+[2026-04-28 22:23:17]     Walk-forward fold 2011 failed: For early stopping, at least one dataset and eval metric is required for evaluation
+[2026-04-28 22:23:17]     Walk-forward fold 2012 failed: For early stopping, at least one dataset and eval metric is required for evaluation
+[2026-04-28 22:23:17]     Walk-forward fold 2013 failed: For early stopping, at least one dataset and eval metric is required for evaluation
+[2026-04-28 22:23:17]     Walk-forward fold 2014 failed: For early stopping, at least one dataset and eval metric is required for evaluation
+[2026-04-28 22:23:17]     Walk-forward fold 2015 failed: For early stopping, at least one dataset and eval metric is required for evaluation
+[2026-04-28 22:23:17]     Walk-forward fold 2016 failed: For early stopping, at least one dataset and eval metric is required for evaluation
+[2026-04-28 22:23:17]     Walk-forward fold 2017 failed: For early stopping, at least one dataset and eval metric is required for evaluation
+[2026-04-28 22:23:17]     Walk-forward fold 2018 failed: For early stopping, at least one dataset and eval metric is required for evaluation
+[2026-04-28 22:23:17]     Walk-forward fold 2019 failed: For early stopping, at least one dataset and eval metric is required for evaluation
+[2026-04-28 22:23:17]     Walk-forward fold 2020 failed: For early stopping, at least one dataset and eval metric is required for evaluation
+[2026-04-28 22:23:17]     Walk-forward fold 2021 failed: For early stopping, at least one dataset and eval metric is required for evaluation
+[2026-04-28 22:23:17] 
+  Best model by CV-MAE: Ridge ✓
+[2026-04-28 22:23:17]   Saved → C:\Users\User\Desktop\m5-project-weather-pipeline\models/yield_model.pkl ✓
+[2026-04-28 22:23:17] 
+=======================================================
+[2026-04-28 22:23:17] STEP 10 — Predicting for years: [2025, 2026]
+[2026-04-28 22:23:17] =======================================================
+[2026-04-28 22:23:17] 
+  Building features for 2025...
+[2026-04-28 22:23:17]   Built 15 feature rows for 2025 ✓
+[2026-04-28 22:23:17] 
+  Building features for 2026...
+[2026-04-28 22:23:18]   WARNING: No weather data for 2026 in clean_weather.
+[2026-04-28 22:23:18]   No feature data for 2026 — skipping.
+[2026-04-28 22:23:18]   predictions → DuckDB ✓
+[2026-04-28 22:23:18] 
+  =================================================================
+[2026-04-28 22:23:18]   2025 PREDICTIONS
+[2026-04-28 22:23:18]   =================================================================
+[2026-04-28 22:23:18]   District                         Pred    Avg     Chg  Plant  Grow  Boll  Harv
+[2026-04-28 22:23:18]   -----------------------------------------------------------------
+[2026-04-28 22:23:18]   Salyan district                  31.2   17.1   +82.7%   11%    9%   68%   18%
+[2026-04-28 22:23:18]   Tartar district                  29.4   21.7   +35.4%    0%   48%   22%    2%
+[2026-04-28 22:23:18]   Yevlakh district                 28.2   22.1   +27.6%    0%   59%   31%   13%
+[2026-04-28 22:23:18]   Aghjabadi district               28.1   18.8   +49.3%    3%   42%   28%   12%
+[2026-04-28 22:23:18]   Beylagan district                26.9   19.0   +41.6%    5%   13%   28%   16%
+[2026-04-28 22:23:18]   Barda district                   26.7   22.2   +20.4%    0%   64%   28%    3%
+[2026-04-28 22:23:18]   Aghdam district                  26.2   17.2   +52.1%   24%    6%   12%   72%
+[2026-04-28 22:23:18]   Neftchala district               26.1   14.1   +84.8%   18%   25%   75%   43%
+[2026-04-28 22:23:18]   Saatli district                  25.7   19.0   +35.0%    1%   14%   59%   17%
+[2026-04-28 22:23:18]   Sabirabad district               25.2   13.8   +82.8%    2%   35%   39%   15%
+[2026-04-28 22:23:18]   Goranboy district                25.1   17.4   +44.1%    0%   57%   22%    5%
+[2026-04-28 22:23:18]   Bilasuvar district               23.0   17.6   +30.8%   10%   16%   65%   28%
+[2026-04-28 22:23:18]   Imishli district                 22.8   16.5   +38.4%    0%   39%   42%   11%
+[2026-04-28 22:23:18]   Kurdamir district                20.7   11.6   +78.5%    7%   19%   37%   39%
+[2026-04-28 22:23:18]   Zardab district                  20.3   11.2   +80.9%    2%   66%   49%   12%
+[2026-04-28 22:23:18]   -----------------------------------------------------------------
+[2026-04-28 22:23:18]   TOTAL                           385.5  259.3
+[2026-04-28 22:23:18] 
+=======================================================
+[2026-04-28 22:23:18] MODEL PIPELINE COMPLETE — DuckDB Tables:
+[2026-04-28 22:23:18] =======================================================
+[2026-04-28 22:23:18]   clean_cotton                 375 rows    4 cols
+[2026-04-28 22:23:18]   clean_weather             142455 rows    9 cols
+[2026-04-28 22:23:18]   features                     375 rows   44 cols
+[2026-04-28 22:23:18]   features_with_risk           375 rows   55 cols
+[2026-04-28 22:23:18]   predictions                   15 rows    9 cols
+[2026-04-28 22:23:18]   raw_cotton                   725 rows    3 cols
+[2026-04-28 22:23:18]   raw_weather               144225 rows    9 cols
+[2026-04-28 22:23:18] 
+  Next: run src/pipeline.py
+[2026-04-28 22:33:57] 
+=======================================================
+[2026-04-28 22:33:57] MEMBER 3 — MODEL TRAINING & PREDICTION PIPELINE
+[2026-04-28 22:33:57] =======================================================
+[2026-04-28 22:33:57]   Loaded features: (375, 44)
+[2026-04-28 22:33:57]   No leakage columns detected ✓
+[2026-04-28 22:33:57] 
+  Train rows (≤2021): 330
+[2026-04-28 22:33:57]   Test  rows (>2021): 45  (years 2022–2024)
+[2026-04-28 22:33:57] 
+  Adding district context + z-scored weather features...
+[2026-04-28 22:33:58]   Features augmented ✓
+[2026-04-28 22:33:58] 
+  Selecting top features...
+[2026-04-28 22:33:58] 
+  Top 22 features selected:
+[2026-04-28 22:33:58]     lag_yield                                          0.6958
+[2026-04-28 22:33:58]     harvest_total_rain_z                               0.0429
+[2026-04-28 22:33:58]     planting_GDD_z                                     0.0269
+[2026-04-28 22:33:58]     growing_wind_mean_z                                0.0194
+[2026-04-28 22:33:58]     planting_temp_mean_z                               0.0187
+[2026-04-28 22:33:58]     harvest_humidity_mean_z                            0.0136
+[2026-04-28 22:33:58]     yield_trend                                        0.0106
+[2026-04-28 22:33:58]     harvest_temp_mean_z                                0.0098
+[2026-04-28 22:33:58]     district_mean_yield                                0.0096
+[2026-04-28 22:33:58]     harvest_GDD_z                                      0.0094
+[2026-04-28 22:33:58]     harvest_max_dry_streak_z                           0.0083
+[2026-04-28 22:33:58]     boll_forming_max_dry_streak_z                      0.0073
+[2026-04-28 22:33:58]     harvest_wind_mean_z                                0.0073
+[2026-04-28 22:33:58]     planting_humidity_mean_z                           0.0073
+[2026-04-28 22:33:58]     boll_forming_heat_stress_days_z                    0.0063
+[2026-04-28 22:33:58]     growing_max_dry_streak_z                           0.0060
+[2026-04-28 22:33:58]     boll_forming_temp_mean_z                           0.0059
+[2026-04-28 22:33:58]     growing_GDD_z                                      0.0054
+[2026-04-28 22:33:58]     planting_max_dry_streak_z                          0.0054
+[2026-04-28 22:33:58]     boll_forming_total_rain_z                          0.0052
+[2026-04-28 22:33:58]     growing_temp_mean_z                                0.0052
+[2026-04-28 22:33:58]     boll_forming_GDD_z                                 0.0051
+[2026-04-28 22:33:58]   Final feature set: 22 columns
+[2026-04-28 22:33:58] 
+=======================================================
+[2026-04-28 22:33:58] STEP 8 — Training Risk Classifiers (4 stages)
+[2026-04-28 22:33:58] =======================================================
+[2026-04-28 22:33:58] 
+  PLANTING RISK CLASSIFIER:
+[2026-04-28 22:33:58]   Train label dist: {np.int64(0): np.int64(396), np.int64(1): np.int64(264)}
+[2026-04-28 22:33:58]   Test  label dist: {np.int64(0): np.int64(41), np.int64(1): np.int64(4)}
+[2026-04-28 22:33:58]               precision    recall  f1-score   support
+
+           0       0.93      1.00      0.96        41
+           1       1.00      0.25      0.40         4
+
+    accuracy                           0.93        45
+   macro avg       0.97      0.62      0.68        45
+weighted avg       0.94      0.93      0.91        45
+
+[2026-04-28 22:33:58]   Saved → C:\Users\User\Desktop\m5-project-weather-pipeline\models/risk_planting.pkl ✓
+[2026-04-28 22:33:59] 
+  GROWING RISK CLASSIFIER:
+[2026-04-28 22:33:59]   Train label dist: {np.int64(0): np.int64(396), np.int64(1): np.int64(264)}
+[2026-04-28 22:33:59]   Test  label dist: {np.int64(0): np.int64(44), np.int64(1): np.int64(1)}
+[2026-04-28 22:33:59]               precision    recall  f1-score   support
+
+           0       1.00      0.82      0.90        44
+           1       0.11      1.00      0.20         1
+
+    accuracy                           0.82        45
+   macro avg       0.56      0.91      0.55        45
+weighted avg       0.98      0.82      0.88        45
+
+[2026-04-28 22:33:59]   Saved → C:\Users\User\Desktop\m5-project-weather-pipeline\models/risk_growing.pkl ✓
+[2026-04-28 22:33:59] 
+  BOLL RISK CLASSIFIER:
+[2026-04-28 22:33:59]   Train label dist: {np.int64(0): np.int64(396), np.int64(1): np.int64(264)}
+[2026-04-28 22:33:59]   Test  label dist: {np.int64(0): np.int64(24), np.int64(1): np.int64(21)}
+[2026-04-28 22:33:59]               precision    recall  f1-score   support
+
+           0       0.57      1.00      0.73        24
+           1       1.00      0.14      0.25        21
+
+    accuracy                           0.60        45
+   macro avg       0.79      0.57      0.49        45
+weighted avg       0.77      0.60      0.50        45
+
+[2026-04-28 22:33:59]   Saved → C:\Users\User\Desktop\m5-project-weather-pipeline\models/risk_boll.pkl ✓
+[2026-04-28 22:34:00] 
+  HARVEST RISK CLASSIFIER:
+[2026-04-28 22:34:00]   Train label dist: {np.int64(0): np.int64(396), np.int64(1): np.int64(264)}
+[2026-04-28 22:34:00]   Test  label dist: {np.int64(0): np.int64(33), np.int64(1): np.int64(12)}
+[2026-04-28 22:34:00]               precision    recall  f1-score   support
+
+           0       0.74      0.76      0.75        33
+           1       0.27      0.25      0.26        12
+
+    accuracy                           0.62        45
+   macro avg       0.50      0.50      0.50        45
+weighted avg       0.61      0.62      0.62        45
+
+[2026-04-28 22:34:00]   Saved → C:\Users\User\Desktop\m5-project-weather-pipeline\models/risk_harvest.pkl ✓
+[2026-04-28 22:34:00] 
+=======================================================
+[2026-04-28 22:34:00] STEP 9 — Training Yield Prediction Models
+[2026-04-28 22:34:00] =======================================================
+[2026-04-28 22:34:00] 
+  Model                    CV-MAE   CV-R²  Test-MAE  Test-R²    MAPE
+[2026-04-28 22:34:00]   --------------------------------------------------------------------
+[2026-04-28 22:34:15]   Ridge                      3.60   0.696      4.70   -2.046   15.4%
+[2026-04-28 22:34:42]   Random Forest              3.30   0.695      5.96   -3.548   19.6%
+[2026-04-28 22:35:47]   Gradient Boosting          3.73   0.641      6.13   -4.213   20.2%
+[2026-04-28 22:36:05]   XGBoost                    3.75   0.644      7.42   -5.789   24.3%
+[2026-04-28 22:36:22]   LightGBM                   3.49   0.677      8.11   -7.326   26.8%
+[2026-04-28 22:36:22] 
+  Best model by CV-MAE: Random Forest ✓
+[2026-04-28 22:36:22]   Saved → C:\Users\User\Desktop\m5-project-weather-pipeline\models/yield_model.pkl ✓
+[2026-04-28 22:36:22] 
+=======================================================
+[2026-04-28 22:36:22] STEP 10 — Predicting for years: [2025]
+[2026-04-28 22:36:22] =======================================================
+[2026-04-28 22:36:22] 
+  Building features for 2025...
+[2026-04-28 22:36:22]   Built 15 raw feature rows for 2025 ✓
+[2026-04-28 22:36:23]   predictions → DuckDB ✓
+[2026-04-28 22:36:23] 
+  =================================================================
+[2026-04-28 22:36:23]   2025 PREDICTIONS
+[2026-04-28 22:36:23]   =================================================================
+[2026-04-28 22:36:23]   District                         Pred    Avg     Chg  Plant  Grow  Boll  Harv
+[2026-04-28 22:36:23]   -----------------------------------------------------------------
+[2026-04-28 22:36:23]   Aghjabadi district               28.4   18.8   +51.0%   38%   32%   22%   64%
+[2026-04-28 22:36:23]   Beylagan district                28.1   19.0   +47.9%   10%   35%   20%   61%
+[2026-04-28 22:36:23]   Tartar district                  27.6   21.7   +27.2%   13%   79%   14%   22%
+[2026-04-28 22:36:23]   Sabirabad district               27.4   13.8   +98.3%   22%   39%   33%   64%
+[2026-04-28 22:36:23]   Goranboy district                27.2   17.4   +56.4%    7%   80%   25%   20%
+[2026-04-28 22:36:23]   Imishli district                 25.2   16.5   +52.7%   16%   48%   41%   66%
+[2026-04-28 22:36:23]   Yevlakh district                 23.4   22.1    +6.1%   10%   44%   21%   71%
+[2026-04-28 22:36:23]   Saatli district                  23.1   19.0   +21.5%   29%   31%   14%   68%
+[2026-04-28 22:36:23]   Salyan district                  23.0   17.1   +34.6%   23%   31%   36%   67%
+[2026-04-28 22:36:23]   Zardab district                  22.3   11.2   +99.4%   20%   33%   35%   66%
+[2026-04-28 22:36:23]   Barda district                   21.3   22.2    -4.2%   12%   46%   21%   62%
+[2026-04-28 22:36:23]   Aghdam district                  21.0   17.2   +22.1%   18%   33%   22%   34%
+[2026-04-28 22:36:23]   Kurdamir district                20.2   11.6   +74.5%   21%   35%   36%   73%
+[2026-04-28 22:36:23]   Bilasuvar district               20.2   17.6   +14.9%   15%   41%   35%   80%
+[2026-04-28 22:36:23]   Neftchala district               17.8   14.1   +26.2%   30%   40%   54%   89%
+[2026-04-28 22:36:23]   -----------------------------------------------------------------
+[2026-04-28 22:36:23]   TOTAL                           356.3  259.3
+[2026-04-28 22:36:23] 
+=======================================================
+[2026-04-28 22:36:23] MODEL PIPELINE COMPLETE — DuckDB Tables:
+[2026-04-28 22:36:23] =======================================================
+[2026-04-28 22:36:23]   clean_cotton                 375 rows    4 cols
+[2026-04-28 22:36:23]   clean_weather             142455 rows    9 cols
+[2026-04-28 22:36:23]   features                     375 rows   44 cols
+[2026-04-28 22:36:23]   features_with_risk           375 rows   55 cols
+[2026-04-28 22:36:23]   predictions                   15 rows    9 cols
+[2026-04-28 22:36:23]   raw_cotton                   725 rows    3 cols
+[2026-04-28 22:36:23]   raw_weather               144225 rows    9 cols
+[2026-04-28 22:36:23] 
+  Next: run src/pipeline.py
+[2026-04-28 22:39:28] 
+=======================================================
+[2026-04-28 22:39:28] MEMBER 3 — MODEL TRAINING & PREDICTION PIPELINE
+[2026-04-28 22:39:28] =======================================================
+[2026-04-28 22:39:28]   Loaded features: (375, 44)
+[2026-04-28 22:39:28]   No leakage columns detected ✓
+[2026-04-28 22:39:28] 
+  Train (≤2021): 330 rows
+[2026-04-28 22:39:28]   Test  (>2021): 45 rows  (years 2022–2024)
+[2026-04-28 22:39:28] 
+  Running walk-forward CV on training years (2000–2021)...
+[2026-04-28 22:39:29]   Walk-forward CV  →  MAE: 6.58  RMSE: 8.35  R²: 0.042
+[2026-04-28 22:39:29] 
+  Adding district features + z-scored weather...
+[2026-04-28 22:39:29]   Done ✓
+[2026-04-28 22:39:29] 
+  Selecting top features (from training data)...
+[2026-04-28 22:39:29] 
+  Top 20 features:
+[2026-04-28 22:39:29]     growing_wind_mean_z                                0.2007
+[2026-04-28 22:39:29]     district_mean_yield                                0.1620
+[2026-04-28 22:39:29]     harvest_wind_mean_z                                0.1008
+[2026-04-28 22:39:29]     harvest_total_rain_z                               0.0569
+[2026-04-28 22:39:29]     planting_temp_mean_z                               0.0567
+[2026-04-28 22:39:29]     growing_max_dry_streak_z                           0.0308
+[2026-04-28 22:39:29]     boll_forming_humidity_mean_z                       0.0288
+[2026-04-28 22:39:29]     boll_forming_wind_mean_z                           0.0274
+[2026-04-28 22:39:29]     planting_wind_mean_z                               0.0228
+[2026-04-28 22:39:29]     boll_forming_temp_mean_z                           0.0222
+[2026-04-28 22:39:29]     boll_forming_GDD_z                                 0.0216
+[2026-04-28 22:39:29]     harvest_humidity_mean_z                            0.0166
+[2026-04-28 22:39:29]     planting_GDD_z                                     0.0165
+[2026-04-28 22:39:29]     planting_humidity_mean_z                           0.0151
+[2026-04-28 22:39:29]     harvest_max_dry_streak_z                           0.0147
+[2026-04-28 22:39:29]     harvest_GDD_z                                      0.0145
+[2026-04-28 22:39:29]     planting_max_dry_streak_z                          0.0144
+[2026-04-28 22:39:29]     boll_forming_max_dry_streak_z                      0.0137
+[2026-04-28 22:39:29]     boll_forming_total_rain_z                          0.0134
+[2026-04-28 22:39:29]     growing_humidity_mean_z                            0.0126
+[2026-04-28 22:39:29]   20 features selected
+[2026-04-28 22:39:29] 
+  Held-out test (2022–2024, for reference only):
+[2026-04-28 22:39:29]     MAE: 7.98  R²: -7.656  MAPE: 26.5%
+[2026-04-28 22:39:29]     Note: negative R² here reflects post-2021 distribution shift,
+[2026-04-28 22:39:29]     not model error. Final model trained on all 2000–2024 data.
+[2026-04-28 22:39:29] 
+=======================================================
+[2026-04-28 22:39:29] STEP 8 — Risk Classifiers (4 stages)
+[2026-04-28 22:39:29] =======================================================
+[2026-04-28 22:39:29] 
+  PLANTING:
+[2026-04-28 22:39:29]               precision    recall  f1-score   support
+
+           0       0.93      1.00      0.96        41
+           1       1.00      0.25      0.40         4
+
+    accuracy                           0.93        45
+   macro avg       0.97      0.62      0.68        45
+weighted avg       0.94      0.93      0.91        45
+
+[2026-04-28 22:39:29]   Saved → risk_planting.pkl ✓
+[2026-04-28 22:39:29] 
+  GROWING:
+[2026-04-28 22:39:29]               precision    recall  f1-score   support
+
+           0       0.97      0.82      0.89        44
+           1       0.00      0.00      0.00         1
+
+    accuracy                           0.80        45
+   macro avg       0.49      0.41      0.44        45
+weighted avg       0.95      0.80      0.87        45
+
+[2026-04-28 22:39:29]   Saved → risk_growing.pkl ✓
+[2026-04-28 22:39:30] 
+  BOLL:
+[2026-04-28 22:39:30]               precision    recall  f1-score   support
+
+           0       0.59      1.00      0.74        24
+           1       1.00      0.19      0.32        21
+
+    accuracy                           0.62        45
+   macro avg       0.79      0.60      0.53        45
+weighted avg       0.78      0.62      0.54        45
+
+[2026-04-28 22:39:30]   Saved → risk_boll.pkl ✓
+[2026-04-28 22:39:30] 
+  HARVEST:
+[2026-04-28 22:39:30]               precision    recall  f1-score   support
+
+           0       0.76      0.76      0.76        33
+           1       0.33      0.33      0.33        12
+
+    accuracy                           0.64        45
+   macro avg       0.55      0.55      0.55        45
+weighted avg       0.64      0.64      0.64        45
+
+[2026-04-28 22:39:30]   Saved → risk_harvest.pkl ✓
+[2026-04-28 22:39:30] 
+=======================================================
+[2026-04-28 22:39:30] STEP 9 — Yield Model (Ridge, trained on all data 2000–2024)
+[2026-04-28 22:39:30] =======================================================
+[2026-04-28 22:39:30] 
+  Training fit (2000–2024):
+[2026-04-28 22:39:30]     MAE:  4.39  R²: 0.570  MAPE: 34.4%
+[2026-04-28 22:39:30]     Rows: 375  Features: 20
+[2026-04-28 22:39:30]   Saved → yield_model.pkl ✓
+[2026-04-28 22:39:30] 
+=======================================================
+[2026-04-28 22:39:30] STEP 10 — Predicting 2025
+[2026-04-28 22:39:30] =======================================================
+[2026-04-28 22:39:30]   Built 15 raw feature rows for 2025 ✓
+[2026-04-28 22:39:30]   predictions → DuckDB ✓
+[2026-04-28 22:39:30] 
+  =================================================================
+[2026-04-28 22:39:30]   2025 PREDICTIONS
+[2026-04-28 22:39:30]   =================================================================
+[2026-04-28 22:39:30]   District                         Pred    Avg     Chg  Plant  Grow  Boll  Harv
+[2026-04-28 22:39:30]   -----------------------------------------------------------------
+[2026-04-28 22:39:30]   Barda district                   31.4   22.2   +41.5%   10%   22%   20%   63%
+[2026-04-28 22:39:30]   Bilasuvar district               31.2   17.6   +77.1%   27%   53%   25%   75%
+[2026-04-28 22:39:30]   Tartar district                  30.2   21.7   +39.3%    5%   62%   11%   16%
+[2026-04-28 22:39:30]   Aghjabadi district               29.0   18.8   +54.3%   44%   37%   21%   62%
+[2026-04-28 22:39:30]   Beylagan district                27.9   19.0   +47.0%   25%   38%   14%   60%
+[2026-04-28 22:39:30]   Yevlakh district                 27.9   22.1   +26.0%    5%   27%   19%   64%
+[2026-04-28 22:39:30]   Aghdam district                  27.0   17.2   +56.7%    8%   40%   29%   22%
+[2026-04-28 22:39:30]   Salyan district                  25.2   17.1   +47.2%   38%   34%   25%   64%
+[2026-04-28 22:39:30]   Saatli district                  24.4   19.0   +28.4%   42%   36%   13%   65%
+[2026-04-28 22:39:30]   Goranboy district                24.1   17.4   +38.5%    4%   61%   38%   16%
+[2026-04-28 22:39:30]   Imishli district                 23.7   16.5   +43.6%   25%   31%   22%   59%
+[2026-04-28 22:39:30]   Zardab district                  20.7   11.2   +84.4%   25%   32%   21%   62%
+[2026-04-28 22:39:30]   Sabirabad district               17.9   13.8   +29.7%   32%   31%   20%   63%
+[2026-04-28 22:39:30]   Kurdamir district                17.8   11.6   +53.5%   20%   37%   25%   74%
+[2026-04-28 22:39:30]   Neftchala district                9.3   14.1   -34.1%   44%   44%   42%   82%
+[2026-04-28 22:39:30]   -----------------------------------------------------------------
+[2026-04-28 22:39:30]   TOTAL                           367.6  259.3
+[2026-04-28 22:39:30] 
+=======================================================
+[2026-04-28 22:39:30] MODEL PIPELINE COMPLETE — DuckDB Tables:
+[2026-04-28 22:39:30] =======================================================
+[2026-04-28 22:39:30]   clean_cotton                 375 rows    4 cols
+[2026-04-28 22:39:30]   clean_weather             142455 rows    9 cols
+[2026-04-28 22:39:30]   features                     375 rows   44 cols
+[2026-04-28 22:39:30]   features_with_risk           375 rows   55 cols
+[2026-04-28 22:39:30]   predictions                   15 rows    9 cols
+[2026-04-28 22:39:30]   raw_cotton                   725 rows    3 cols
+[2026-04-28 22:39:30]   raw_weather               144225 rows    9 cols
+[2026-04-28 22:39:30] 
+  Next: run src/pipeline.py
+[2026-04-28 22:45:24] 
+=======================================================
+[2026-04-28 22:45:24] MEMBER 3 — MODEL TRAINING & PREDICTION PIPELINE
+[2026-04-28 22:45:24] =======================================================
+[2026-04-28 22:45:24]   Loaded features: (375, 44)
+[2026-04-28 22:45:24]   No leakage columns detected ✓
+[2026-04-28 22:45:24] 
+  Train (≤2021): 330 rows
+[2026-04-28 22:45:24]   Test  (>2021): 45 rows  (years 2022–2024)
+[2026-04-28 22:45:24] 
+  Adding district features + z-scored weather...
+[2026-04-28 22:45:24]   Done ✓
+[2026-04-28 22:45:24] 
+  Walk-forward CV on yield_anomaly (2000–2021)...
+[2026-04-28 22:45:36] 
+  Model                    CV-MAE  CV-RMSE   CV-R²
+[2026-04-28 22:45:36]   --------------------------------------------------
+[2026-04-28 22:45:36]   Ridge                      6.58     8.34  -0.326
+[2026-04-28 22:45:36]   Random Forest              5.87     7.79  -0.157
+[2026-04-28 22:45:36]   Gradient Boosting          5.87     7.67  -0.124
+[2026-04-28 22:45:36]   XGBoost                    5.74     7.52  -0.080
+[2026-04-28 22:45:36]   LightGBM                   5.96     7.70  -0.132
+[2026-04-28 22:45:36] 
+  Best model by CV-MAE: XGBoost ✓
+[2026-04-28 22:45:36] 
+  Selecting top features...
+[2026-04-28 22:45:37] 
+  Top 20 features (predicting yield anomaly):
+[2026-04-28 22:45:37]     harvest_wind_mean_z                                0.1635
+[2026-04-28 22:45:37]     growing_wind_mean_z                                0.1584
+[2026-04-28 22:45:37]     harvest_total_rain_z                               0.0935
+[2026-04-28 22:45:37]     planting_temp_mean_z                               0.0688
+[2026-04-28 22:45:37]     boll_forming_wind_mean_z                           0.0496
+[2026-04-28 22:45:37]     boll_forming_GDD_z                                 0.0337
+[2026-04-28 22:45:37]     boll_forming_humidity_mean_z                       0.0308
+[2026-04-28 22:45:37]     planting_GDD_z                                     0.0270
+[2026-04-28 22:45:37]     planting_max_dry_streak_z                          0.0261
+[2026-04-28 22:45:37]     planting_humidity_mean_z                           0.0251
+[2026-04-28 22:45:37]     boll_forming_temp_mean_z                           0.0236
+[2026-04-28 22:45:37]     growing_max_dry_streak_z                           0.0216
+[2026-04-28 22:45:37]     growing_humidity_mean_z                            0.0185
+[2026-04-28 22:45:37]     harvest_humidity_mean_z                            0.0180
+[2026-04-28 22:45:37]     harvest_max_dry_streak_z                           0.0171
+[2026-04-28 22:45:37]     boll_forming_max_dry_streak_z                      0.0168
+[2026-04-28 22:45:37]     boll_forming_total_rain_z                          0.0153
+[2026-04-28 22:45:37]     planting_wind_mean_z                               0.0137
+[2026-04-28 22:45:37]     harvest_GDD_z                                      0.0133
+[2026-04-28 22:45:37]     planting_total_rain_z                              0.0126
+[2026-04-28 22:45:37]   20 features selected
+[2026-04-28 22:45:37] 
+  Held-out test anomaly (2022–2024, reference only):
+[2026-04-28 22:45:37]     MAE: 9.23  R²: -8.758
+[2026-04-28 22:45:37]   Held-out test raw yield (2022–2024, reference only):
+[2026-04-28 22:45:37]     MAE: 9.23  R²: -10.177  MAPE: 30.9%
+[2026-04-28 22:45:37] 
+=======================================================
+[2026-04-28 22:45:37] STEP 8 — Risk Classifiers (4 stages)
+[2026-04-28 22:45:37] =======================================================
+[2026-04-28 22:45:37] 
+  PLANTING:
+[2026-04-28 22:45:37]               precision    recall  f1-score   support
+
+           0       0.93      1.00      0.96        41
+           1       1.00      0.25      0.40         4
+
+    accuracy                           0.93        45
+   macro avg       0.97      0.62      0.68        45
+weighted avg       0.94      0.93      0.91        45
+
+[2026-04-28 22:45:37]   Saved → risk_planting.pkl ✓
+[2026-04-28 22:45:37] 
+  GROWING:
+[2026-04-28 22:45:37]               precision    recall  f1-score   support
+
+           0       0.97      0.68      0.80        44
+           1       0.00      0.00      0.00         1
+
+    accuracy                           0.67        45
+   macro avg       0.48      0.34      0.40        45
+weighted avg       0.95      0.67      0.78        45
+
+[2026-04-28 22:45:37]   Saved → risk_growing.pkl ✓
+[2026-04-28 22:45:38] 
+  BOLL:
+[2026-04-28 22:45:38]               precision    recall  f1-score   support
+
+           0       0.54      0.88      0.67        24
+           1       0.50      0.14      0.22        21
+
+    accuracy                           0.53        45
+   macro avg       0.52      0.51      0.44        45
+weighted avg       0.52      0.53      0.46        45
+
+[2026-04-28 22:45:38]   Saved → risk_boll.pkl ✓
+[2026-04-28 22:45:38] 
+  HARVEST:
+[2026-04-28 22:45:38]               precision    recall  f1-score   support
+
+           0       0.74      0.70      0.72        33
+           1       0.29      0.33      0.31        12
+
+    accuracy                           0.60        45
+   macro avg       0.51      0.52      0.51        45
+weighted avg       0.62      0.60      0.61        45
+
+[2026-04-28 22:45:38]   Saved → risk_harvest.pkl ✓
+[2026-04-28 22:45:38] 
+=======================================================
+[2026-04-28 22:45:38] STEP 9 — Yield Anomaly Model (XGBoost, trained on 2000–2024)
+[2026-04-28 22:45:38] =======================================================
+[2026-04-28 22:45:38]   Saved → yield_model.pkl ✓
+[2026-04-28 22:45:38] 
+=======================================================
+[2026-04-28 22:45:38] STEP 10 — Predicting 2025
+[2026-04-28 22:45:38] =======================================================
+[2026-04-28 22:45:38]   Built 15 raw feature rows for 2025 ✓
+[2026-04-28 22:45:38]   predictions → DuckDB ✓
+[2026-04-28 22:45:38] 
+  =================================================================
+[2026-04-28 22:45:38]   2025 PREDICTIONS (anomaly model → converted back to raw yield)
+[2026-04-28 22:45:38]   =================================================================
+[2026-04-28 22:45:38]   District                         Pred    Avg     Chg  Plant  Grow  Boll  Harv
+[2026-04-28 22:45:38]   -----------------------------------------------------------------
+[2026-04-28 22:45:38]   Barda district                   31.8   22.2   +43.1%   12%   25%   27%   60%
+[2026-04-28 22:45:38]   Yevlakh district                 30.4   22.1   +37.5%    9%   28%   26%   70%
+[2026-04-28 22:45:38]   Aghjabadi district               30.2   18.8   +60.7%   40%   44%   20%   59%
+[2026-04-28 22:45:38]   Beylagan district                30.2   19.0   +59.0%   23%   43%   16%   59%
+[2026-04-28 22:45:38]   Tartar district                  30.1   21.7   +38.7%    6%   66%   33%   19%
+[2026-04-28 22:45:38]   Bilasuvar district               27.9   17.6   +58.7%   29%   55%   23%   74%
+[2026-04-28 22:45:38]   Aghdam district                  27.3   17.2   +58.5%   10%   42%   26%   37%
+[2026-04-28 22:45:38]   Salyan district                  26.6   17.1   +55.7%   35%   38%   16%   63%
+[2026-04-28 22:45:38]   Imishli district                 26.6   16.5   +61.0%   22%   35%   17%   57%
+[2026-04-28 22:45:38]   Goranboy district                26.5   17.4   +52.4%    4%   66%   40%   18%
+[2026-04-28 22:45:38]   Saatli district                  22.0   19.0   +16.0%   40%   41%   18%   68%
+[2026-04-28 22:45:38]   Kurdamir district                21.9   11.6   +89.1%   18%   41%   19%   72%
+[2026-04-28 22:45:38]   Zardab district                  21.3   11.2   +89.8%   22%   36%   17%   60%
+[2026-04-28 22:45:38]   Sabirabad district               16.5   13.8   +19.3%   29%   35%   13%   61%
+[2026-04-28 22:45:38]   Neftchala district               15.3   14.1    +8.2%   42%   49%   33%   82%
+[2026-04-28 22:45:38]   -----------------------------------------------------------------
+[2026-04-28 22:45:38]   TOTAL                           384.6  259.3
+[2026-04-28 22:45:38] 
+=======================================================
+[2026-04-28 22:45:38] MODEL PIPELINE COMPLETE — DuckDB Tables:
+[2026-04-28 22:45:38] =======================================================
+[2026-04-28 22:45:39]   clean_cotton                 375 rows    4 cols
+[2026-04-28 22:45:39]   clean_weather             142455 rows    9 cols
+[2026-04-28 22:45:39]   features                     375 rows   44 cols
+[2026-04-28 22:45:39]   features_with_risk           375 rows   55 cols
+[2026-04-28 22:45:39]   predictions                   15 rows    9 cols
+[2026-04-28 22:45:39]   raw_cotton                   725 rows    3 cols
+[2026-04-28 22:45:39]   raw_weather               144225 rows    9 cols
+[2026-04-28 22:45:39] 
+  Next: run src/pipeline.py
+[2026-04-28 22:55:05] 
+=======================================================
+[2026-04-28 22:55:05] MEMBER 1 — DATA INGESTION PIPELINE
+[2026-04-28 22:55:05] =======================================================
+[2026-04-28 22:55:05] =======================================================
+[2026-04-28 22:55:05] STEP 1 — Weather Ingestion (Incremental)
+[2026-04-28 22:55:05] =======================================================
+[2026-04-28 22:55:05]   Goranboy district: already up to date (last year=2026) ✓ skipping
+[2026-04-28 22:55:05]   Kurdamir district: already up to date (last year=2026) ✓ skipping
+[2026-04-28 22:55:05]   Yevlakh district: already up to date (last year=2026) ✓ skipping
+[2026-04-28 22:55:05]   Zardab district: already up to date (last year=2026) ✓ skipping
+[2026-04-28 22:55:05]   Tartar district: already up to date (last year=2026) ✓ skipping
+[2026-04-28 22:55:05]   Aghdam district: already up to date (last year=2026) ✓ skipping
+[2026-04-28 22:55:05]   Sabirabad district: already up to date (last year=2026) ✓ skipping
+[2026-04-28 22:55:05]   Saatli district: already up to date (last year=2026) ✓ skipping
+[2026-04-28 22:55:05]   Imishli district: already up to date (last year=2026) ✓ skipping
+[2026-04-28 22:55:05]   Beylagan district: already up to date (last year=2026) ✓ skipping
+[2026-04-28 22:55:05]   Aghjabadi district: already up to date (last year=2026) ✓ skipping
+[2026-04-28 22:55:05]   Barda district: already up to date (last year=2026) ✓ skipping
+[2026-04-28 22:55:05]   Bilasuvar district: already up to date (last year=2026) ✓ skipping
+[2026-04-28 22:55:05]   Neftchala district: already up to date (last year=2026) ✓ skipping
+[2026-04-28 22:55:05]   Salyan district: already up to date (last year=2026) ✓ skipping
+[2026-04-28 22:55:05] 
+  raw_weather → DuckDB updated ✓
+[2026-04-28 22:55:05]   Total rows:  144225
+[2026-04-28 22:55:05]   Stations:    15
+[2026-04-28 22:55:05] =======================================================
+[2026-04-28 22:55:05] STEP 2 — Cotton Dataset Ingestion
+[2026-04-28 22:55:05] =======================================================
+[2026-04-28 22:55:05]   Raw shape after reshape: (725, 3)
+[2026-04-28 22:55:05]   Nulls in yield:          0
+[2026-04-28 22:55:05]   Districts:               29
+[2026-04-28 22:55:05]   Years:                   2000 – 2024
+[2026-04-28 22:55:05] 
   raw_cotton table created in DuckDB
-[2026-04-24 00:01:12] =======================================================
-[2026-04-24 00:01:12] STEP 2 — Cotton Dataset Ingestion
-[2026-04-24 00:01:12] =======================================================
-[2026-04-24 00:01:12]   Raw shape after reshape: (725, 3)
-[2026-04-24 00:01:12]   Nulls in yield:          0
-[2026-04-24 00:01:12]   Districts:               29
-[2026-04-24 00:01:12]   Years:                   2000 – 2024
-[2026-04-24 00:01:12] 
-  raw_cotton table created in DuckDB
-[2026-04-24 00:01:13] =======================================================
-[2026-04-24 00:01:13] STEP 1 — Weather Ingestion
-[2026-04-24 00:01:13] =======================================================
-[2026-04-24 00:01:13]   Fetching weather for Ganja (2000–2024)...
-[2026-04-24 00:01:16]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\ganja_daily.csv
-[2026-04-24 00:01:16]   Fetching weather for Shamkir (2000–2024)...
-[2026-04-24 00:01:16]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\shamkir_daily.csv
-[2026-04-24 00:01:16]   Fetching weather for Sabirabad (2000–2024)...
-[2026-04-24 00:04:15] =======================================================
-[2026-04-24 00:04:15] STEP 1 — Weather Ingestion
-[2026-04-24 00:04:15] =======================================================
-[2026-04-24 00:04:15]   Fetching weather for Ganja (2000–2024)...
-[2026-04-24 00:04:15]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\ganja_daily.csv
-[2026-04-24 00:04:15]   Fetching weather for Shamkir (2000–2024)...
-[2026-04-24 00:04:15]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\shamkir_daily.csv
-[2026-04-24 00:04:15]   Fetching weather for Sabirabad (2000–2024)...
-[2026-04-24 00:04:19]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\sabirabad_daily.csv
-[2026-04-24 00:04:19]   Fetching weather for Lankaran (2000–2024)...
-[2026-04-24 00:04:21]     Saved 9132 rows → C:\Users\User\Desktop\bootcamp\labs\m5-project-weather-pipeline\data\raw\weather\lankaran_daily.csv
-[2026-04-24 00:04:21]   Fetching weather for Nakhchivan (2000–2024)...
+[2026-04-28 22:55:05] 
+=======================================================
+[2026-04-28 22:55:05] INGESTION COMPLETE — DuckDB Tables Created:
+[2026-04-28 22:55:05] =======================================================
+[2026-04-28 22:55:05]   clean_cotton            375 rows    4 cols
+[2026-04-28 22:55:05]   clean_weather        142455 rows    9 cols
+[2026-04-28 22:55:05]   features                375 rows   44 cols
+[2026-04-28 22:55:05]   features_with_risk      375 rows   55 cols
+[2026-04-28 22:55:05]   predictions              15 rows    9 cols
+[2026-04-28 22:55:05]   raw_cotton              725 rows    3 cols
+[2026-04-28 22:55:05]   raw_weather          144225 rows    9 cols
+[2026-04-28 22:55:05] 
+DuckDB saved → C:\Users\User\Desktop\m5-project-weather-pipeline\data\cotton_project.duckdb
+[2026-04-28 22:55:05] 
+=======================================================
+[2026-04-28 22:55:05] MEMBER 1 — DATA CLEANING PIPELINE
+[2026-04-28 22:55:05] =======================================================
+[2026-04-28 22:55:05] =======================================================
+[2026-04-28 22:55:05] STEP 3 — Cleaning Cotton Dataset
+[2026-04-28 22:55:05] =======================================================
+[2026-04-28 22:55:05]    Rows loaded from raw_cotton: 725
+[2026-04-28 22:55:05]    Null yields: 191
+[2026-04-28 22:55:05] 
+  Districts dropped (had null values):
+[2026-04-28 22:55:05]     ✗ Agdash district
+[2026-04-28 22:55:05]     ✗ Aghdara district
+[2026-04-28 22:55:05]     ✗ Aghsu district
+[2026-04-28 22:55:05]     ✗ Fuzuli district
+[2026-04-28 22:55:05]     ✗ Ganja city
+[2026-04-28 22:55:05]     ✗ Goychay district
+[2026-04-28 22:55:05]     ✗ Hajigabul district
+[2026-04-28 22:55:05]     ✗ Jabrayil district
+[2026-04-28 22:55:05]     ✗ Jalilabad district
+[2026-04-28 22:55:05]     ✗ Khojaly district
+[2026-04-28 22:55:05]     ✗ Khojavand district
+[2026-04-28 22:55:05]     ✗ Lachin district
+[2026-04-28 22:55:05]     ✗ Samukh district
+[2026-04-28 22:55:05]     ✗ Ujar district
+[2026-04-28 22:55:05] 
+  Rows after cleaning:  375
+[2026-04-28 22:55:05]   Districts remaining:  15
+[2026-04-28 22:55:05]   Nulls remaining:      0
+[2026-04-28 22:55:05]   clean_cotton table saved to DuckDB ✓
+[2026-04-28 22:55:05] =======================================================
+[2026-04-28 22:55:05] STEP 4 — Cleaning Weather Dataset
+[2026-04-28 22:55:05] =======================================================
+[2026-04-28 22:55:05]    Rows loaded from raw_weather (2000–2025): 142455
+[2026-04-28 22:55:05]    Sensor errors fixed.
+[2026-04-28 22:55:05]    Nulls after interpolation:
+[2026-04-28 22:55:05]    clean_weather table saved to DuckDB ✓
+[2026-04-28 22:55:05] =======================================================
+[2026-04-28 22:55:05] STEP 5 — Alignment Verification
+[2026-04-28 22:55:05] =======================================================
+[2026-04-28 22:55:06]    Cotton years:     2000 – 2024
+[2026-04-28 22:55:06]    Cotton districts: 15
+[2026-04-28 22:55:06]    Weather years:    2000 – 2025
+[2026-04-28 22:55:06]    Weather stations: 15
+[2026-04-28 22:55:06]   All districts have matching weather stations ✓
+[2026-04-28 22:55:06] 
+=======================================================
+[2026-04-28 22:55:06] CLEANING COMPLETE — DuckDB Tables:
+[2026-04-28 22:55:06] =======================================================
+[2026-04-28 22:55:06]   clean_cotton                 375 rows    4 cols
+[2026-04-28 22:55:06]   clean_weather             142455 rows    9 cols
+[2026-04-28 22:55:06]   features                     375 rows   44 cols
+[2026-04-28 22:55:06]   features_with_risk           375 rows   55 cols
+[2026-04-28 22:55:06]   predictions                   15 rows    9 cols
+[2026-04-28 22:55:06]   raw_cotton                   725 rows    3 cols
+[2026-04-28 22:55:06]   raw_weather               144225 rows    9 cols
+[2026-04-28 22:55:06] 
+=======================================================
+[2026-04-28 22:55:06] MEMBER 2 — FEATURE ENGINEERING PIPELINE
+[2026-04-28 22:55:06] =======================================================
+[2026-04-28 22:55:06] =======================================================
+[2026-04-28 22:55:06] STEP 6 — Building Growth Stage Features
+[2026-04-28 22:55:06] =======================================================
+[2026-04-28 22:55:06]   Cotton rows:  375
+[2026-04-28 22:55:06]   Weather rows: 142455
+[2026-04-28 22:55:06]   Districts:    15
+[2026-04-28 22:55:06]   Processing 375 district-year combinations...
+[2026-04-28 22:55:07]   Processed 100/375 rows...
+[2026-04-28 22:55:08]   Processed 200/375 rows...
+[2026-04-28 22:55:09]   Processed 300/375 rows...
+[2026-04-28 22:55:10] 
+  Final shape:  (375, 44)
+[2026-04-28 22:55:10]   Districts:    15
+[2026-04-28 22:55:10]   Years:        2000 – 2024
+[2026-04-28 22:55:10]   Null check:   0 nulls
+[2026-04-28 22:55:10]   features → DuckDB ✓
+[2026-04-28 22:55:10] =======================================================
+[2026-04-28 22:55:10] STEP 7 — Building Risk Scores (for website only)
+[2026-04-28 22:55:10]          ⚠ These will NOT be used in model training
+[2026-04-28 22:55:10] =======================================================
+[2026-04-28 22:55:10] 
+  Risk label validation:
+[2026-04-28 22:55:10]     Safe  (label=0) avg yield: 23.4t
+[2026-04-28 22:55:10]     Risky (label=1) avg yield: 11.2t
+[2026-04-28 22:55:10]     Validation: PASSED ✓
+[2026-04-28 22:55:10] 
+  features_with_risk → DuckDB ✓
+[2026-04-28 22:55:10]   (used for website visualization only — NOT for model training)
+[2026-04-28 22:55:10] 
+=======================================================
+[2026-04-28 22:55:10] FEATURE ENGINEERING COMPLETE — DuckDB Tables:
+[2026-04-28 22:55:10] =======================================================
+[2026-04-28 22:55:10]   clean_cotton                 375 rows    4 cols
+[2026-04-28 22:55:10]   clean_weather             142455 rows    9 cols
+[2026-04-28 22:55:10]   features                     375 rows   44 cols
+[2026-04-28 22:55:10]   features_with_risk           375 rows   55 cols
+[2026-04-28 22:55:10]   predictions                   15 rows    9 cols
+[2026-04-28 22:55:10]   raw_cotton                   725 rows    3 cols
+[2026-04-28 22:55:10]   raw_weather               144225 rows    9 cols
+[2026-04-28 22:55:10] 
+  Next: run src/models.py
+[2026-04-28 22:55:10] 
+=======================================================
+[2026-04-28 22:55:10] MEMBER 3 — QUALITY CHECKS
+[2026-04-28 22:55:10] =======================================================
+[2026-04-28 22:55:10] 
+Check 1 — Null values in features:
+[2026-04-28 22:55:10]   Total rows:    375
+[2026-04-28 22:55:10]   Total nulls:   0
+[2026-04-28 22:55:10]   PASSED ✓
+[2026-04-28 22:55:10] 
+Check 2 — Train/test split:
+[2026-04-28 22:55:10]   Train rows (≤2021): 330
+[2026-04-28 22:55:10]   Test  rows (>2021): 45
+[2026-04-28 22:55:10]   Districts:          15
+[2026-04-28 22:55:10]   PASSED ✓
+[2026-04-28 22:55:10] 
+Check 3 — Yield range sanity:
+[2026-04-28 22:55:10]   Min yield:  1.0 tonnes
+[2026-04-28 22:55:10]   Max yield:  43.2 tonnes
+[2026-04-28 22:55:10]   Mean yield: 18.8 tonnes
+[2026-04-28 22:55:10]   PASSED ✓
+[2026-04-28 22:55:10] 
+Check 4 — Year range coverage:
+[2026-04-28 22:55:10]   Years: 2000 – 2024
+[2026-04-28 22:55:10]   Total unique years: 25
+[2026-04-28 22:55:10]   PASSED ✓
+[2026-04-28 22:55:10] 
+Check 5 — Feature column integrity:
+[2026-04-28 22:55:10]   Columns found:    44
+[2026-04-28 22:55:10]   Columns expected: ≥44
+[2026-04-28 22:55:10]   PASSED ✓ — no risk/deviation columns, weather features intact
+[2026-04-28 22:55:10] 
+Check 6 — GDD values non-negative:
+[2026-04-28 22:55:10]   All 4 GDD columns non-negative ✓
+[2026-04-28 22:55:10]   PASSED ✓
+[2026-04-28 22:55:10] 
+Check 7 — District coverage:
+[2026-04-28 22:55:10]   Districts in features: 15
+[2026-04-28 22:55:10]     Aghdam district                25 years
+[2026-04-28 22:55:10]     Aghjabadi district             25 years
+[2026-04-28 22:55:10]     Barda district                 25 years
+[2026-04-28 22:55:10]     Beylagan district              25 years
+[2026-04-28 22:55:10]     Bilasuvar district             25 years
+[2026-04-28 22:55:10]     Goranboy district              25 years
+[2026-04-28 22:55:10]     Imishli district               25 years
+[2026-04-28 22:55:10]     Kurdamir district              25 years
+[2026-04-28 22:55:10]     Neftchala district             25 years
+[2026-04-28 22:55:10]     Saatli district                25 years
+[2026-04-28 22:55:10]     Sabirabad district             25 years
+[2026-04-28 22:55:10]     Salyan district                25 years
+[2026-04-28 22:55:10]     Tartar district                25 years
+[2026-04-28 22:55:10]     Yevlakh district               25 years
+[2026-04-28 22:55:10]     Zardab district                25 years
+[2026-04-28 22:55:10]   PASSED ✓ — all 15 districts present
+[2026-04-28 22:55:10] 
+  Quality checks complete. Proceeding to model training.
+[2026-04-28 22:55:10] 
+=======================================================
+[2026-04-28 22:55:10] MEMBER 3 — MODEL TRAINING & PREDICTION PIPELINE
+[2026-04-28 22:55:10] =======================================================
+[2026-04-28 22:55:10]   Loaded features: (375, 44)
+[2026-04-28 22:55:10]   No leakage columns detected ✓
+[2026-04-28 22:55:10] 
+  Train (≤2021): 330 rows
+[2026-04-28 22:55:10]   Test  (>2021): 45 rows  (years 2022–2024)
+[2026-04-28 22:55:10] 
+  Adding district features + z-scored weather...
+[2026-04-28 22:55:10]   Done ✓
+[2026-04-28 22:55:10] 
+  Walk-forward CV on yield_anomaly (2000–2021)...
+[2026-04-28 22:55:22] 
+  Model                    CV-MAE  CV-RMSE   CV-R²
+[2026-04-28 22:55:22]   --------------------------------------------------
+[2026-04-28 22:55:22]   Ridge                      6.58     8.34  -0.326
+[2026-04-28 22:55:22]   Random Forest              5.87     7.79  -0.157
+[2026-04-28 22:55:22]   Gradient Boosting          5.87     7.67  -0.124
+[2026-04-28 22:55:22]   XGBoost                    5.74     7.52  -0.080
+[2026-04-28 22:55:22]   LightGBM                   5.96     7.70  -0.132
+[2026-04-28 22:55:22] 
+  Best model by CV-MAE: XGBoost ✓
+[2026-04-28 22:55:22] 
+  Selecting top features...
+[2026-04-28 22:55:23] 
+  Top 20 features (predicting yield anomaly):
+[2026-04-28 22:55:23]     harvest_wind_mean_z                                0.1635
+[2026-04-28 22:55:23]     growing_wind_mean_z                                0.1584
+[2026-04-28 22:55:23]     harvest_total_rain_z                               0.0935
+[2026-04-28 22:55:23]     planting_temp_mean_z                               0.0688
+[2026-04-28 22:55:23]     boll_forming_wind_mean_z                           0.0496
+[2026-04-28 22:55:23]     boll_forming_GDD_z                                 0.0337
+[2026-04-28 22:55:23]     boll_forming_humidity_mean_z                       0.0308
+[2026-04-28 22:55:23]     planting_GDD_z                                     0.0270
+[2026-04-28 22:55:23]     planting_max_dry_streak_z                          0.0261
+[2026-04-28 22:55:23]     planting_humidity_mean_z                           0.0251
+[2026-04-28 22:55:23]     boll_forming_temp_mean_z                           0.0236
+[2026-04-28 22:55:23]     growing_max_dry_streak_z                           0.0216
+[2026-04-28 22:55:23]     growing_humidity_mean_z                            0.0185
+[2026-04-28 22:55:23]     harvest_humidity_mean_z                            0.0180
+[2026-04-28 22:55:23]     harvest_max_dry_streak_z                           0.0171
+[2026-04-28 22:55:23]     boll_forming_max_dry_streak_z                      0.0168
+[2026-04-28 22:55:23]     boll_forming_total_rain_z                          0.0153
+[2026-04-28 22:55:23]     planting_wind_mean_z                               0.0137
+[2026-04-28 22:55:23]     harvest_GDD_z                                      0.0133
+[2026-04-28 22:55:23]     planting_total_rain_z                              0.0126
+[2026-04-28 22:55:23]   20 features selected
+[2026-04-28 22:55:23] 
+  Held-out test anomaly (2022–2024, reference only):
+[2026-04-28 22:55:23]     MAE: 9.23  R²: -8.758
+[2026-04-28 22:55:23]   Held-out test raw yield (2022–2024, reference only):
+[2026-04-28 22:55:23]     MAE: 9.23  R²: -10.177  MAPE: 30.9%
+[2026-04-28 22:55:23] 
+=======================================================
+[2026-04-28 22:55:23] STEP 8 — Risk Classifiers (4 stages)
+[2026-04-28 22:55:23] =======================================================
+[2026-04-28 22:55:23] 
+  PLANTING:
+[2026-04-28 22:55:23]               precision    recall  f1-score   support
+
+           0       0.93      1.00      0.96        41
+           1       1.00      0.25      0.40         4
+
+    accuracy                           0.93        45
+   macro avg       0.97      0.62      0.68        45
+weighted avg       0.94      0.93      0.91        45
+
+[2026-04-28 22:55:23]   Saved → risk_planting.pkl ✓
+[2026-04-28 22:55:23] 
+  GROWING:
+[2026-04-28 22:55:24]               precision    recall  f1-score   support
+
+           0       0.97      0.68      0.80        44
+           1       0.00      0.00      0.00         1
+
+    accuracy                           0.67        45
+   macro avg       0.48      0.34      0.40        45
+weighted avg       0.95      0.67      0.78        45
+
+[2026-04-28 22:55:24]   Saved → risk_growing.pkl ✓
+[2026-04-28 22:55:24] 
+  BOLL:
+[2026-04-28 22:55:24]               precision    recall  f1-score   support
+
+           0       0.54      0.88      0.67        24
+           1       0.50      0.14      0.22        21
+
+    accuracy                           0.53        45
+   macro avg       0.52      0.51      0.44        45
+weighted avg       0.52      0.53      0.46        45
+
+[2026-04-28 22:55:24]   Saved → risk_boll.pkl ✓
+[2026-04-28 22:55:24] 
+  HARVEST:
+[2026-04-28 22:55:24]               precision    recall  f1-score   support
+
+           0       0.74      0.70      0.72        33
+           1       0.29      0.33      0.31        12
+
+    accuracy                           0.60        45
+   macro avg       0.51      0.52      0.51        45
+weighted avg       0.62      0.60      0.61        45
+
+[2026-04-28 22:55:24]   Saved → risk_harvest.pkl ✓
+[2026-04-28 22:55:24] 
+=======================================================
+[2026-04-28 22:55:24] STEP 9 — Yield Anomaly Model (XGBoost, trained on 2000–2024)
+[2026-04-28 22:55:24] =======================================================
+[2026-04-28 22:55:24]   Saved → yield_model.pkl ✓
+[2026-04-28 22:55:24] 
+=======================================================
+[2026-04-28 22:55:24] STEP 10 — Predicting 2025
+[2026-04-28 22:55:24] =======================================================
+[2026-04-28 22:55:24]   Built 15 raw feature rows for 2025 ✓
+[2026-04-28 22:55:25]   predictions → DuckDB ✓
+[2026-04-28 22:55:25] 
+  =================================================================
+[2026-04-28 22:55:25]   2025 PREDICTIONS (anomaly model → converted back to raw yield)
+[2026-04-28 22:55:25]   =================================================================
+[2026-04-28 22:55:25]   District                         Pred    Avg     Chg  Plant  Grow  Boll  Harv
+[2026-04-28 22:55:25]   -----------------------------------------------------------------
+[2026-04-28 22:55:25]   Barda district                   31.8   22.2   +43.1%   12%   25%   27%   60%
+[2026-04-28 22:55:25]   Yevlakh district                 30.4   22.1   +37.5%    9%   28%   26%   70%
+[2026-04-28 22:55:25]   Aghjabadi district               30.2   18.8   +60.7%   40%   44%   20%   59%
+[2026-04-28 22:55:25]   Beylagan district                30.2   19.0   +59.0%   23%   43%   16%   59%
+[2026-04-28 22:55:25]   Tartar district                  30.1   21.7   +38.7%    6%   66%   33%   19%
+[2026-04-28 22:55:25]   Bilasuvar district               27.9   17.6   +58.7%   29%   55%   23%   74%
+[2026-04-28 22:55:25]   Aghdam district                  27.3   17.2   +58.5%   10%   42%   26%   37%
+[2026-04-28 22:55:25]   Salyan district                  26.6   17.1   +55.7%   35%   38%   16%   63%
+[2026-04-28 22:55:25]   Imishli district                 26.6   16.5   +61.0%   22%   35%   17%   57%
+[2026-04-28 22:55:25]   Goranboy district                26.5   17.4   +52.4%    4%   66%   40%   18%
+[2026-04-28 22:55:25]   Saatli district                  22.0   19.0   +16.0%   40%   41%   18%   68%
+[2026-04-28 22:55:25]   Kurdamir district                21.9   11.6   +89.1%   18%   41%   19%   72%
+[2026-04-28 22:55:25]   Zardab district                  21.3   11.2   +89.8%   22%   36%   17%   60%
+[2026-04-28 22:55:25]   Sabirabad district               16.5   13.8   +19.3%   29%   35%   13%   61%
+[2026-04-28 22:55:25]   Neftchala district               15.3   14.1    +8.2%   42%   49%   33%   82%
+[2026-04-28 22:55:25]   -----------------------------------------------------------------
+[2026-04-28 22:55:25]   TOTAL                           384.6  259.3
+[2026-04-28 22:55:25] 
+=======================================================
+[2026-04-28 22:55:25] MODEL PIPELINE COMPLETE — DuckDB Tables:
+[2026-04-28 22:55:25] =======================================================
+[2026-04-28 22:55:25]   clean_cotton                 375 rows    4 cols
+[2026-04-28 22:55:25]   clean_weather             142455 rows    9 cols
+[2026-04-28 22:55:25]   features                     375 rows   44 cols
+[2026-04-28 22:55:25]   features_with_risk           375 rows   55 cols
+[2026-04-28 22:55:25]   predictions                   15 rows    9 cols
+[2026-04-28 22:55:25]   raw_cotton                   725 rows    3 cols
+[2026-04-28 22:55:25]   raw_weather               144225 rows    9 cols
+[2026-04-28 22:55:25] 
+  Next: run src/pipeline.py
+[2026-04-28 22:55:25] 
+=======================================================
+[2026-04-28 22:55:25] MEMBER 4 — EDA, VISUALIZATION & REPORTING
+[2026-04-28 22:55:25] =======================================================
+[2026-04-28 22:55:25] =======================================================
+[2026-04-28 22:55:25] STEP 11 — Exploratory Data Analysis
+[2026-04-28 22:55:25] =======================================================
+[2026-04-28 22:55:25]   Saved: 01_yield_over_time.png ✓
+[2026-04-28 22:55:26]   Saved: 02_yield_per_district.png ✓
+[2026-04-28 22:55:26]   Saved: 03_correlation_heatmap.png ✓
+[2026-04-28 22:55:27]   Saved: 04_risk_over_time.png ✓
+[2026-04-28 22:55:27]   Saved: 05_gdd_rain_vs_yield.png ✓
+[2026-04-28 22:55:27]   Saved: 06_yield_safe_vs_risky.png ✓
+[2026-04-28 22:55:27] 
+  EDA complete — 6 charts saved to C:\Users\User\Desktop\m5-project-weather-pipeline\reports\figures
+[2026-04-28 22:55:27] =======================================================
+[2026-04-28 22:55:27] STEP 12 — Forecast Dashboard & Report
+[2026-04-28 22:55:27] =======================================================
+[2026-04-28 22:55:27]   Saved: 07_predictions_2025.png ✓
+[2026-04-28 22:55:28]   Saved: 08_risk_heatmap_2025.png ✓
+[2026-04-28 22:55:28]   Saved: 09_yield_vs_pct_change.png ✓
+[2026-04-28 22:55:29]   Saved: 10_summary_dashboard.png ✓
+[2026-04-28 22:55:29]   Saved: predictions_2025.csv → C:\Users\User\Desktop\m5-project-weather-pipeline\reports\predictions_2025.csv ✓
+[2026-04-28 22:55:29] 
+=================================================================
+[2026-04-28 22:55:29] FINAL PROJECT SUMMARY
+[2026-04-28 22:55:29] =================================================================
+[2026-04-28 22:55:29] 
+  DATA
+    Districts:        15 regions
+    Historical years: 2000 – 2024
+    Database:         DuckDB (cotton_project.duckdb)
+
+  PIPELINE TABLES
+    raw_cotton          → original reshaped data
+    raw_weather         → original API data
+    clean_cotton        → nulls removed, districts mapped
+    clean_weather       → sensor errors fixed, 2000–2025
+    features            → 40 weather features per district/year
+    features_with_risk  → + risk scores and labels
+    predictions         → 2025 forecasts (15 districts)
+
+  MODEL
+    Target:           yield_anomaly (deviation from district mean)
+    Final model:      trained on all 2000–2024 data
+    Features:         z-scored weather + district mean yield
+    Note:             Weather explains modest year-to-year variance;
+                      district baselines dominate absolute yield levels.
+
+  2025 PREDICTIONS
+    Total predicted:  385 tonnes
+    Historical total: 259 tonnes
+    Overall change:   +48.3%
+    Avg stage risk:   36.5%
+    Best district:    Barda district (31.8t)
+    Most at risk:     Neftchala district (+8.2% vs avg)
+
+[2026-04-28 22:55:29]   District breakdown:
+[2026-04-28 22:55:29]   District                         Pred    Avg     Chg  Plant  Grow  Boll  Harv
+[2026-04-28 22:55:29]   -----------------------------------------------------------------
+[2026-04-28 22:55:29]   Barda district                   31.8   22.2   +43.1%   12%   25%   27%   60%
+[2026-04-28 22:55:29]   Yevlakh district                 30.4   22.1   +37.5%    9%   28%   26%   70%
+[2026-04-28 22:55:29]   Aghjabadi district               30.2   18.8   +60.7%   40%   44%   20%   59%
+[2026-04-28 22:55:29]   Beylagan district                30.2   19.0   +59.0%   23%   43%   16%   59%
+[2026-04-28 22:55:29]   Tartar district                  30.1   21.7   +38.7%    6%   66%   33%   19%
+[2026-04-28 22:55:29]   Bilasuvar district               27.9   17.6   +58.7%   29%   55%   23%   74%
+[2026-04-28 22:55:29]   Aghdam district                  27.3   17.2   +58.5%   10%   42%   26%   37%
+[2026-04-28 22:55:29]   Salyan district                  26.6   17.1   +55.7%   35%   38%   16%   63%
+[2026-04-28 22:55:29]   Imishli district                 26.6   16.5   +61.0%   22%   35%   17%   57%
+[2026-04-28 22:55:29]   Goranboy district                26.5   17.4   +52.4%    4%   66%   40%   18%
+[2026-04-28 22:55:29]   Saatli district                  22.0   19.0   +16.0%   40%   41%   18%   68%
+[2026-04-28 22:55:29]   Kurdamir district                21.9   11.6   +89.1%   18%   41%   19%   72%
+[2026-04-28 22:55:29]   Zardab district                  21.3   11.2   +89.8%   22%   36%   17%   60%
+[2026-04-28 22:55:29]   Sabirabad district               16.5   13.8   +19.3%   29%   35%   13%   61%
+[2026-04-28 22:55:29]   Neftchala district               15.3   14.1    +8.2%   42%   49%   33%   82%
+[2026-04-28 22:55:29] 
+=================================================================
+[2026-04-28 22:55:29] PROJECT COMPLETE ✓
+[2026-04-28 22:55:29] =================================================================
+[2026-04-28 22:56:20] 
+=======================================================
+[2026-04-28 22:56:20] MEMBER 4 — EDA, VISUALIZATION & REPORTING
+[2026-04-28 22:56:20] =======================================================
+[2026-04-28 22:56:20] =======================================================
+[2026-04-28 22:56:20] STEP 11 — Exploratory Data Analysis
+[2026-04-28 22:56:20] =======================================================
+[2026-04-28 22:56:21]   Saved: 01_yield_over_time.png ✓
+[2026-04-28 22:56:21]   Saved: 02_yield_per_district.png ✓
+[2026-04-28 22:56:21]   Saved: 03_correlation_heatmap.png ✓
+[2026-04-28 22:56:22]   Saved: 04_risk_over_time.png ✓
+[2026-04-28 22:56:22]   Saved: 05_gdd_rain_vs_yield.png ✓
+[2026-04-28 22:56:22]   Saved: 06_yield_safe_vs_risky.png ✓
+[2026-04-28 22:56:22] 
+  EDA complete — 6 charts saved to C:\Users\User\Desktop\m5-project-weather-pipeline\reports\figures
+[2026-04-28 22:56:22] =======================================================
+[2026-04-28 22:56:22] STEP 12 — Forecast Dashboard & Report
+[2026-04-28 22:56:22] =======================================================
+[2026-04-28 22:56:22]   Saved: 07_predictions_2025.png ✓
+[2026-04-28 22:56:22]   Saved: 08_risk_heatmap_2025.png ✓
+[2026-04-28 22:56:23]   Saved: 09_yield_vs_pct_change.png ✓
+[2026-04-28 22:56:23]   Saved: 10_summary_dashboard.png ✓
+[2026-04-28 22:56:23]   Saved: predictions_2025.csv → C:\Users\User\Desktop\m5-project-weather-pipeline\reports\predictions_2025.csv ✓
+[2026-04-28 22:56:23] 
+=================================================================
+[2026-04-28 22:56:23] FINAL PROJECT SUMMARY
+[2026-04-28 22:56:23] =================================================================
+[2026-04-28 22:56:23] 
+  DATA
+    Districts:        15 regions
+    Historical years: 2000 – 2024
+    Database:         DuckDB (cotton_project.duckdb)
+
+  PIPELINE TABLES
+    raw_cotton          → original reshaped data
+    raw_weather         → original API data
+    clean_cotton        → nulls removed, districts mapped
+    clean_weather       → sensor errors fixed, 2000–2025
+    features            → 40 weather features per district/year
+    features_with_risk  → + risk scores and labels
+    predictions         → 2025 forecasts (15 districts)
+
+  MODEL
+    Target:           yield_anomaly (deviation from district mean)
+    Final model:      trained on all 2000–2024 data
+    Features:         z-scored weather + district mean yield
+    Note:             Weather explains modest year-to-year variance;
+                      district baselines dominate absolute yield levels.
+
+  2025 PREDICTIONS
+    Total predicted:  385 tonnes
+    Historical total: 259 tonnes
+    Overall change:   +48.3%
+    Avg stage risk:   36.5%
+    Best district:    Barda district (31.8t)
+    Most at risk:     Neftchala district (+8.2% vs avg)
+
+[2026-04-28 22:56:23]   District breakdown:
+[2026-04-28 22:56:23]   District                         Pred    Avg     Chg  Plant  Grow  Boll  Harv
+[2026-04-28 22:56:23]   -----------------------------------------------------------------
+[2026-04-28 22:56:23]   Barda district                   31.8   22.2   +43.1%   12%   25%   27%   60%
+[2026-04-28 22:56:23]   Yevlakh district                 30.4   22.1   +37.5%    9%   28%   26%   70%
+[2026-04-28 22:56:23]   Aghjabadi district               30.2   18.8   +60.7%   40%   44%   20%   59%
+[2026-04-28 22:56:23]   Beylagan district                30.2   19.0   +59.0%   23%   43%   16%   59%
+[2026-04-28 22:56:23]   Tartar district                  30.1   21.7   +38.7%    6%   66%   33%   19%
+[2026-04-28 22:56:23]   Bilasuvar district               27.9   17.6   +58.7%   29%   55%   23%   74%
+[2026-04-28 22:56:23]   Aghdam district                  27.3   17.2   +58.5%   10%   42%   26%   37%
+[2026-04-28 22:56:23]   Salyan district                  26.6   17.1   +55.7%   35%   38%   16%   63%
+[2026-04-28 22:56:23]   Imishli district                 26.6   16.5   +61.0%   22%   35%   17%   57%
+[2026-04-28 22:56:23]   Goranboy district                26.5   17.4   +52.4%    4%   66%   40%   18%
+[2026-04-28 22:56:23]   Saatli district                  22.0   19.0   +16.0%   40%   41%   18%   68%
+[2026-04-28 22:56:23]   Kurdamir district                21.9   11.6   +89.1%   18%   41%   19%   72%
+[2026-04-28 22:56:23]   Zardab district                  21.3   11.2   +89.8%   22%   36%   17%   60%
+[2026-04-28 22:56:23]   Sabirabad district               16.5   13.8   +19.3%   29%   35%   13%   61%
+[2026-04-28 22:56:23]   Neftchala district               15.3   14.1    +8.2%   42%   49%   33%   82%
+[2026-04-28 22:56:23] 
+=================================================================
+[2026-04-28 22:56:23] PROJECT COMPLETE ✓
+[2026-04-28 22:56:23] =================================================================

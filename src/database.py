@@ -1,81 +1,137 @@
 # src/database.py
 # ─────────────────────────────────────────────────────────────────────────────
 # DATABASE / STORAGE LAYER
-# Handles saving and loading all project datasets consistently
+# Handles saving and loading all project datasets from DuckDB
 # ─────────────────────────────────────────────────────────────────────────────
-
 import pandas as pd
+import duckdb
 import os
-from config import (
-    PROCESSED_DIR, FINAL_DIR, RAW_WEATHER_DIR,
-    COTTON_LONG_PATH, WEATHER_ALL_PATH
-)
+import sys
+
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+from config import DB_PATH, REPORTS_DIR, MODELS_DIR
 
 
-def save_dataset(df: pd.DataFrame, path: str, description: str = ""):
-    """Saves a DataFrame to CSV with confirmation."""
-    os.makedirs(os.path.dirname(path), exist_ok=True)
-    df.to_csv(path, index=False)
-    print(f"  Saved {description}: {len(df)} rows × {len(df.columns)} cols → {path}")
+def get_connection():
+    """Returns a DuckDB connection to the project database."""
+    return duckdb.connect(DB_PATH)
 
 
-def load_cotton() -> pd.DataFrame:
-    """Loads the cleaned long-format cotton dataset."""
-    df = pd.read_csv(COTTON_LONG_PATH)
-    print(f"Loaded cotton: {df.shape} | years {df['year'].min()}–{df['year'].max()}")
+# ── Loaders ───────────────────────────────────────────────────────────────────
+
+def load_raw_cotton() -> pd.DataFrame:
+    """Loads the raw long-format cotton dataset from DuckDB."""
+    con = get_connection()
+    df  = con.execute("SELECT * FROM raw_cotton ORDER BY region, year").df()
+    con.close()
+    print(f"Loaded raw_cotton:    {df.shape} | years {df['year'].min()}–{df['year'].max()}")
     return df
 
 
-def load_weather() -> pd.DataFrame:
-    """Loads the combined daily weather dataset."""
-    df = pd.read_csv(WEATHER_ALL_PATH, parse_dates=["date"])
-    print(f"Loaded weather: {df.shape} | {df['region'].nunique()} stations")
+def load_clean_cotton() -> pd.DataFrame:
+    """Loads the cleaned cotton dataset from DuckDB."""
+    con = get_connection()
+    df  = con.execute("SELECT * FROM clean_cotton ORDER BY region, year").df()
+    con.close()
+    print(f"Loaded clean_cotton:  {df.shape} | districts {df['region'].nunique()}")
+    return df
+
+
+def load_raw_weather() -> pd.DataFrame:
+    """Loads the raw daily weather dataset from DuckDB."""
+    con = get_connection()
+    df  = con.execute("SELECT * FROM raw_weather ORDER BY region, date").df()
+    con.close()
+    print(f"Loaded raw_weather:   {df.shape} | stations {df['region'].nunique()}")
+    return df
+
+
+def load_clean_weather() -> pd.DataFrame:
+    """Loads the cleaned daily weather dataset from DuckDB."""
+    con = get_connection()
+    df  = con.execute("SELECT * FROM clean_weather ORDER BY region, date").df()
+    con.close()
+    print(f"Loaded clean_weather: {df.shape} | stations {df['region'].nunique()}")
+    return df
+
+
+def load_features() -> pd.DataFrame:
+    """Loads the engineered feature table from DuckDB."""
+    con = get_connection()
+    df  = con.execute("SELECT * FROM features ORDER BY region, year").df()
+    con.close()
+    print(f"Loaded features:      {df.shape} | years {df['year'].min()}–{df['year'].max()}")
     return df
 
 
 def load_ml_dataset(with_risk: bool = False) -> pd.DataFrame:
     """
-    Loads the final ML-ready dataset.
-    with_risk=True loads the version with risk scores and labels.
+    Loads the final ML-ready dataset from DuckDB.
+    with_risk=True loads the version that includes risk scores and labels.
     """
-    filename = "ml_dataset_with_risk.csv" if with_risk else "ml_dataset.csv"
-    path = os.path.join(FINAL_DIR, filename)
-    df   = pd.read_csv(path)
-    print(f"Loaded ML dataset ({'with risk' if with_risk else 'base'}): {df.shape}")
+    table = "ml_dataset_with_risk" if with_risk else "ml_dataset"
+    con   = get_connection()
+    df    = con.execute(f"SELECT * FROM {table} ORDER BY region, year").df()
+    con.close()
+    print(f"Loaded {table}: {df.shape}")
     return df
 
 
 def load_predictions() -> pd.DataFrame:
-    """Loads the 2025 predictions results table."""
-    path = os.path.join("reports", "predictions_2025.csv")
-    df   = pd.read_csv(path)
-    print(f"Loaded predictions: {df.shape}")
+    """Loads the predictions results table from DuckDB."""
+    con = get_connection()
+    df  = con.execute("SELECT * FROM predictions ORDER BY region, year").df()
+    con.close()
+    print(f"Loaded predictions:   {df.shape}")
     return df
 
 
+# ── Savers ────────────────────────────────────────────────────────────────────
+
+def save_table(df: pd.DataFrame, table_name: str, description: str = ""):
+    """Saves a DataFrame to DuckDB as a named table (replaces if exists)."""
+    con = get_connection()
+    con.execute(f"DROP TABLE IF EXISTS {table_name}")
+    con.execute(f"CREATE TABLE {table_name} AS SELECT * FROM df")
+    count = con.execute(f"SELECT COUNT(*) FROM {table_name}").fetchone()[0]
+    con.close()
+    label = description or table_name
+    print(f"  Saved {label}: {count} rows × {len(df.columns)} cols → DuckDB [{table_name}]")
+
+
+def save_predictions_csv(df: pd.DataFrame, filename: str = "predictions_2025.csv"):
+    """Exports predictions to a CSV report file for sharing/reporting."""
+    os.makedirs(REPORTS_DIR, exist_ok=True)
+    path = os.path.join(REPORTS_DIR, filename)
+    df.to_csv(path, index=False)
+    print(f"  Predictions exported: {len(df)} rows → {path}")
+
+
+# ── Summary ───────────────────────────────────────────────────────────────────
+
 def dataset_summary():
-    """Prints a full summary of all available datasets."""
-    print("\n" + "="*55)
-    print("DATASET INVENTORY")
-    print("="*55)
+    """Prints a full summary of all tables currently in DuckDB."""
+    print("\n" + "=" * 55)
+    print("DATABASE INVENTORY — " + DB_PATH)
+    print("=" * 55)
 
-    files = {
-        "Cotton (long format)":   COTTON_LONG_PATH,
-        "Weather (all stations)": WEATHER_ALL_PATH,
-        "ML dataset (base)":      os.path.join(FINAL_DIR, "ml_dataset.csv"),
-        "ML dataset (with risk)": os.path.join(FINAL_DIR, "ml_dataset_with_risk.csv"),
-    }
+    con    = get_connection()
+    tables = con.execute("SHOW TABLES").fetchall()
 
-    for name, path in files.items():
-        if os.path.exists(path):
-            df   = pd.read_csv(path)
-            size = os.path.getsize(path) / 1024
-            print(f"  {name:<28} {str(df.shape):<15} {size:.1f} KB")
-        else:
-            print(f"  {name:<28} NOT FOUND")
+    if not tables:
+        print("  No tables found.")
+    else:
+        for (name,) in tables:
+            try:
+                count = con.execute(f"SELECT COUNT(*) FROM {name}").fetchone()[0]
+                cols  = len(con.execute(f"SELECT * FROM {name} LIMIT 1").description)
+                print(f"  {name:<28} {count:>6} rows  {cols:>3} cols")
+            except Exception as e:
+                print(f"  {name:<28} ERROR: {e}")
 
-    print("="*55)
+    con.close()
+    print("=" * 55)
 
 
 if __name__ == "__main__":
-    dataset_summary() 
+    dataset_summary()  

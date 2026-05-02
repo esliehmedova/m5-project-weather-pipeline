@@ -1,4 +1,4 @@
- # src/cleaning.py
+# src/cleaning.py
 import pandas as pd
 import numpy as np
 import duckdb
@@ -15,7 +15,7 @@ def log(msg):
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     line = f"[{timestamp}] {msg}"
     print(line)
-    with open(os.path.join(LOGS_DIR, "pipeline.log"), "a", encoding="utf-8") as f: 
+    with open(os.path.join(LOGS_DIR, "pipeline.log"), "a", encoding="utf-8") as f:
         f.write(line + "\n")
 
 
@@ -24,54 +24,52 @@ def clean_cotton(con):
     log("STEP 3 — Cleaning Cotton Dataset")
     log("=" * 55)
 
-    # Read raw cotton using SQL
     df = con.execute("""
         SELECT region, year, yield_tonnes
         FROM raw_cotton
         ORDER BY region, year
     """).df()
-    
-    # Convert - and ... to nan and remove whitespaces
+
+    # Strip whitespace
     df["region"] = df["region"].str.strip()
 
-    df["yield_tonnes"] = pd.to_numeric(df["yield_tonnes"].replace(["-", "…", "..."], np.nan),errors="coerce")
-  
+    # Convert dashes / ellipses to NaN
+    df["yield_tonnes"] = pd.to_numeric(
+        df["yield_tonnes"].replace(["-", "…", "..."], np.nan),
+        errors="coerce"
+    )
 
-    
-    log(f"  Rows loaded from raw_cotton: {len(df)}")
-    log(f"  Null yields: {df['yield_tonnes'].isnull().sum()}")
+    log(f"   Rows loaded from raw_cotton: {len(df)}")
+    log(f"   Null yields: {df['yield_tonnes'].isnull().sum()}")
 
-    # Find districts that have ANY null — drop them completely
-    null_districts = df[df['yield_tonnes'].isnull()]['region'].unique()
+    # Drop districts that have ANY null yield
+    null_districts = df[df["yield_tonnes"].isnull()]["region"].unique()
     if len(null_districts) > 0:
         log(f"\n  Districts dropped (had null values):")
         for d in sorted(null_districts):
             log(f"    ✗ {d}")
-        df = df[~df['region'].isin(null_districts)].copy()
+        df = df[~df["region"].isin(null_districts)].copy()
     else:
         log("  No null districts found.")
 
-    # Add weather station mapping
-    df["weather_station"] = df["region"].map(REGION_TO_WEATHER)
-
-    # Drop unmapped districts
-    unmapped = df[df["weather_station"].isna()]["region"].unique()
+    # REGION_TO_WEATHER is a set — keep only districts present in it
+    # (each district maps to itself as the weather station name)
+    unmapped = df[~df["region"].isin(REGION_TO_WEATHER)]["region"].unique()
     if len(unmapped) > 0:
-        log(f"\n  Unmapped districts dropped:")
+        log(f"\n  Districts not in REGION_TO_WEATHER (dropped):")
         for d in unmapped:
             log(f"    ✗ {d}")
-        df = df.dropna(subset=["weather_station"])
+        df = df[df["region"].isin(REGION_TO_WEATHER)].copy()
+
+    # weather_station == region (1-to-1 mapping)
+    df["weather_station"] = df["region"]
 
     log(f"\n  Rows after cleaning:  {len(df)}")
     log(f"  Districts remaining:  {df['region'].nunique()}")
     log(f"  Nulls remaining:      {df['yield_tonnes'].isnull().sum()}")
 
-    # Save cleaned cotton to DuckDB
     con.execute("DROP TABLE IF EXISTS clean_cotton")
-    con.execute("""
-        CREATE TABLE clean_cotton AS
-        SELECT * FROM df
-    """)
+    con.execute("CREATE TABLE clean_cotton AS SELECT * FROM df")
     log("  clean_cotton table saved to DuckDB ✓")
 
     return df
@@ -82,50 +80,45 @@ def clean_weather(con):
     log("STEP 4 — Cleaning Weather Dataset")
     log("=" * 55)
 
-    # Read using SQL — only years we need
+    # 2000–2025: training (2000–2024) + prediction input (2025)
+    # 2026 excluded — only partial year available
     df = con.execute("""
         SELECT *
         FROM raw_weather
-        WHERE year >= 2000 AND year <= 2024
+        WHERE year BETWEEN 2000 AND 2025
         ORDER BY region, date
     """).df()
 
-    log(f"  Rows loaded from raw_weather: {len(df)}")
+    log(f"   Rows loaded from raw_weather (2000–2025): {len(df)}")
 
-    numeric_cols = [
-        "temp_max", "temp_min", "temp_mean",
-        "precipitation", "humidity_max", "humidity_min",
-        "wind_speed", "et0"
-    ]
+    # Only the 4 columns that config now fetches
+    numeric_cols = ["temp_mean", "precipitation", "humidity_mean", "wind_speed"]
 
-    # Fix sensor errors using SQL logic applied in pandas
-    df.loc[df["temp_max"] > 60,      "temp_max"]      = np.nan
-    df.loc[df["temp_min"] < -40,     "temp_min"]       = np.nan
-    df.loc[df["precipitation"] < 0,  "precipitation"]  = 0.0
-    df.loc[df["humidity_max"] > 100, "humidity_max"]   = 100.0
-    df.loc[df["humidity_min"] < 0,   "humidity_min"]   = 0.0
+    # Fix obvious sensor / API errors
+    df.loc[df["temp_mean"] > 60,       "temp_mean"]     = np.nan
+    df.loc[df["temp_mean"] < -40,      "temp_mean"]     = np.nan
+    df.loc[df["precipitation"] < 0,    "precipitation"] = 0.0
+    df.loc[df["humidity_mean"] > 100,  "humidity_mean"] = 100.0
+    df.loc[df["humidity_mean"] < 0,    "humidity_mean"] = 0.0
+    df.loc[df["wind_speed"] < 0,       "wind_speed"]    = np.nan
 
-    # Interpolate short gaps per station
+    # Interpolate short gaps (up to 3 consecutive days) per station
     df = df.sort_values(["region", "date"])
     for col in numeric_cols:
         df[col] = df.groupby("region")[col].transform(
             lambda x: x.interpolate(method="linear", limit=3)
         )
 
-    log(f"  Sensor errors fixed.")
-    log(f"  Nulls after interpolation:")
+    log("   Sensor errors fixed.")
+    log("   Nulls after interpolation:")
     for col in numeric_cols:
         n = df[col].isnull().sum()
         if n > 0:
-            log(f"    {col}: {n}")
+            log(f"     {col}: {n}")
 
-    # Save clean weather to DuckDB
     con.execute("DROP TABLE IF EXISTS clean_weather")
-    con.execute("""
-        CREATE TABLE clean_weather AS
-        SELECT * FROM df
-    """)
-    log(f"  clean_weather table saved to DuckDB ✓")
+    con.execute("CREATE TABLE clean_weather AS SELECT * FROM df")
+    log("   clean_weather table saved to DuckDB ✓")
 
     return df
 
@@ -146,12 +139,12 @@ def verify_alignment(con):
         FROM clean_cotton c, clean_weather w
     """).df()
 
-    log(f"  Cotton years:     {result['cotton_min_year'][0]} – {result['cotton_max_year'][0]}")
-    log(f"  Cotton districts: {result['cotton_districts'][0]}")
-    log(f"  Weather years:    {result['weather_min_year'][0]} – {result['weather_max_year'][0]}")
-    log(f"  Weather stations: {result['weather_stations'][0]}")
+    log(f"   Cotton years:     {result['cotton_min_year'][0]} – {result['cotton_max_year'][0]}")
+    log(f"   Cotton districts: {result['cotton_districts'][0]}")
+    log(f"   Weather years:    {result['weather_min_year'][0]} – {result['weather_max_year'][0]}")
+    log(f"   Weather stations: {result['weather_stations'][0]}")
 
-    # Check every cotton district has a matching weather station
+    # Every cotton district must have a matching weather station
     missing = con.execute("""
         SELECT DISTINCT c.region, c.weather_station
         FROM clean_cotton c

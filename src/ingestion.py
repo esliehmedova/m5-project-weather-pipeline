@@ -2,6 +2,7 @@
 import pandas as pd
 import os
 import sys
+import time
 import duckdb
 import openmeteo_requests
 import requests_cache
@@ -21,7 +22,7 @@ def log(msg):
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     line = f"[{timestamp}] {msg}"
     print(line)
-    with open(os.path.join(LOGS_DIR, "pipeline.log"), "a", encoding="utf-8") as f: 
+    with open(os.path.join(LOGS_DIR, "pipeline.log"), "a", encoding="utf-8") as f:
         f.write(line + "\n")
 
 
@@ -36,11 +37,18 @@ def get_openmeteo_client():
 def fetch_weather_for_location(client, name, lat, lon, start_year=None, end_year=None):
     log(f"  Fetching weather for {name} ({start_year}–{end_year})...")
 
+    from datetime import date
+    today = date.today()
+
+    end_date = f"{end_year}-12-31"
+    if end_year == today.year:
+        end_date = str(today)
+
     params = {
         "latitude":   lat,
         "longitude":  lon,
         "start_date": f"{start_year}-01-01",
-        "end_date":   f"{end_year}-12-31",
+        "end_date":   end_date,
         "daily":      WEATHER_VARIABLES,
         "timezone":   TIMEZONE
     }
@@ -51,6 +59,11 @@ def fetch_weather_for_location(client, name, lat, lon, start_year=None, end_year
     )
     daily = responses[0].Daily()
 
+    # Config WEATHER_VARIABLES order:
+    #   [0] temperature_2m_mean
+    #   [1] precipitation_sum
+    #   [2] relative_humidity_2m_mean
+    #   [3] wind_speed_10m_max
     df = pd.DataFrame({
         "date": pd.date_range(
             start=pd.to_datetime(daily.Time(), unit="s"),
@@ -58,14 +71,10 @@ def fetch_weather_for_location(client, name, lat, lon, start_year=None, end_year
             freq=pd.Timedelta(seconds=daily.Interval()),
             inclusive="left"
         ),
-        "temp_max":      daily.Variables(0).ValuesAsNumpy(),
-        "temp_min":      daily.Variables(1).ValuesAsNumpy(),
-        "temp_mean":     daily.Variables(2).ValuesAsNumpy(),
-        "precipitation": daily.Variables(3).ValuesAsNumpy(),
-        "humidity_max":  daily.Variables(4).ValuesAsNumpy(),
-        "humidity_min":  daily.Variables(5).ValuesAsNumpy(),
-        "wind_speed":    daily.Variables(6).ValuesAsNumpy(),
-        "et0":           daily.Variables(7).ValuesAsNumpy(),
+        "temp_mean":     daily.Variables(0).ValuesAsNumpy(),
+        "precipitation": daily.Variables(1).ValuesAsNumpy(),
+        "humidity_mean": daily.Variables(2).ValuesAsNumpy(),
+        "wind_speed":    daily.Variables(3).ValuesAsNumpy(),
     })
 
     df["region"] = name
@@ -86,7 +95,7 @@ def ingest_all_weather(con):
     log("STEP 1 — Weather Ingestion (Incremental)")
     log("=" * 55)
 
-    # Check what years already exist in DuckDB per station
+    # ── Check what's already in DuckDB ────────────────────────────────────────
     existing_years = {}
     try:
         for name in LOCATIONS.keys():
@@ -99,33 +108,67 @@ def ingest_all_weather(con):
     except Exception:
         existing_years = {name: None for name in LOCATIONS.keys()}
 
+    # ── CSV fallback: crash recovery ──────────────────────────────────────────
+    # If the pipeline crashed and DuckDB lost the table but CSVs were saved,
+    # read max year from CSV so we don't re-fetch already-downloaded data.
+    csv_recovered = {}
+    for name in LOCATIONS.keys():
+        if existing_years.get(name) is None:
+            save_path = os.path.join(
+                RAW_WEATHER_DIR,
+                f"{name.lower().replace(' ', '_')}_daily.csv"
+            )
+            if os.path.exists(save_path):
+                try:
+                    tmp    = pd.read_csv(save_path, usecols=["year"])
+                    max_yr = int(tmp["year"].max())
+                    csv_recovered[name] = max_yr
+                    log(f"  {name}: CSV recovered from disk (max year={max_yr})")
+                except Exception:
+                    pass
+
+    # ── Fetch loop ────────────────────────────────────────────────────────────
+    fetch_count = 0  # counts actual API calls made this run
+
     for name, info in LOCATIONS.items():
-        last_year = existing_years.get(name)
+        last_year = existing_years.get(name) or csv_recovered.get(name)
 
         if last_year is None:
-            # No data yet — fetch everything
             start_year = WEATHER_START_YEAR
             log(f"  {name}: no existing data → fetching {start_year}–{WEATHER_END_YEAR}")
 
         elif last_year >= WEATHER_END_YEAR:
-            # Already up to date — skip
             log(f"  {name}: already up to date (last year={last_year}) ✓ skipping")
+            # Load from CSV to include in DuckDB rebuild
+            save_path = os.path.join(
+                RAW_WEATHER_DIR,
+                f"{name.lower().replace(' ', '_')}_daily.csv"
+            )
+            if os.path.exists(save_path):
+                all_dfs.append(pd.read_csv(save_path))
             continue
 
         else:
-            # Only fetch new years
             start_year = last_year + 1
             log(f"  {name}: existing up to {last_year} → fetching {start_year}–{WEATHER_END_YEAR}")
+
+        # ── Rate limit guard ──────────────────────────────────────────────────
+        if fetch_count > 0:
+            log(f"    Waiting 20s to respect API rate limit...")
+            time.sleep(20)
 
         df = fetch_weather_for_location(
             client, name,
             info["lat"], info["lon"],
             start_year, WEATHER_END_YEAR
-        ) 
+        )
+        fetch_count += 1
 
-        save_path = os.path.join(RAW_WEATHER_DIR, f"{name.lower()}_daily.csv")
+        save_path = os.path.join(
+            RAW_WEATHER_DIR,
+            f"{name.lower().replace(' ', '_')}_daily.csv"
+        )
 
-        # If file already exists append new rows, otherwise create fresh
         if os.path.exists(save_path) and last_year is not None:
             existing_df = pd.read_csv(save_path)
             df = pd.concat([existing_df, df], ignore_index=True)
@@ -137,6 +180,7 @@ def ingest_all_weather(con):
         log(f"    Total rows saved: {len(df)}")
         all_dfs.append(df)
 
+    # ── Rebuild DuckDB from all data (fetched + recovered from CSV) ───────────
     if all_dfs:
         combined = pd.concat(all_dfs, ignore_index=True)
         con.execute("DROP TABLE IF EXISTS raw_weather")
@@ -144,12 +188,11 @@ def ingest_all_weather(con):
         count = con.execute("SELECT COUNT(*) FROM raw_weather").fetchone()[0]
         log(f"\n  raw_weather → DuckDB updated ✓")
         log(f"  Total rows:  {count}")
-        log(f"  Stations:    {len(LOCATIONS)}")
+        log(f"  Stations:    {combined['region'].nunique()}")
+        return combined
     else:
-        log("\n  All weather data already up to date ✓")
-        log("  raw_weather table unchanged")
-
-    return combined if all_dfs else None
+        log("\n  No data to load.")
+        return None
 
 
 def ingest_cotton(con):
@@ -176,13 +219,8 @@ def ingest_cotton(con):
     log(f"  Districts:               {df_long['region'].nunique()}")
     log(f"  Years:                   {df_long['year'].min()} – {df_long['year'].max()}")
 
-    # Save raw long format to DuckDB
     con.execute("DROP TABLE IF EXISTS raw_cotton")
-    con.execute("""
-        CREATE TABLE raw_cotton AS
-        SELECT * FROM df_long
-    """)
-
+    con.execute("CREATE TABLE raw_cotton AS SELECT * FROM df_long")
     log(f"\n  raw_cotton table created in DuckDB")
 
     return df_long
@@ -199,7 +237,6 @@ def run_ingestion():
     ingest_all_weather(con)
     ingest_cotton(con)
 
-    # Summary
     log("\n" + "=" * 55)
     log("INGESTION COMPLETE — DuckDB Tables Created:")
     log("=" * 55)
